@@ -29,6 +29,8 @@
 
         public void Run()
         {
+            this.renderer.PrintMessage(GameMassages.WelcomeMessage);
+            this.renderer.PrintMessage(GameMassages.HowToPlayMessage);
             this.initializer.InitializeGame(this.grid, this.player);
 
             while (true)
@@ -98,6 +100,7 @@
 
                 case Commands.Exit:
                     {
+                        this.userInterface.ExitGame();
                         break;
                     }
 

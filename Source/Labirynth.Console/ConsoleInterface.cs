@@ -37,5 +37,10 @@
                     return Commands.Invalid;
             }
         }
+		
+		public void ExitGame()
+        {
+            Environment.Exit(0);
+        }
     }
 }
