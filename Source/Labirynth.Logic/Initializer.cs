@@ -37,50 +37,49 @@
             grid.SetCell(GlobalConstants.StartPlayerPositionX, GlobalConstants.StartPlayerPositionY, GlobalConstants.PlayerSignSymbol);
 
             this.MakeAtLeastOneExitReachable(grid, player);
-            // TODO: Use PrintMessage method
-            Console.WriteLine("Welcome to “Labirinth” game. Please try to escape. Use 'top' to view the top");
-            Console.WriteLine("scoreboard, 'restart' to start a new game and 'exit' to quit the game.");
             return grid;
         }
         
-        // TODO: Refactor and fix method
         private void MakeAtLeastOneExitReachable(Grid generatedGrid, IPlayer player)
         {
             Random rand = new Random();
-            int pathX = player.Position.X; // GlobalConstants.StartPlayerPositionX;
-            int pathY = player.Position.Y; // GlobalConstants.StartPlayerPositionY;
             int[] dirX = { 0, 0, 1, -1 };
             int[] dirY = { 1, -1, 0, 0 };
             int numberOfDirections = 4;
-            int maximumTimesToChangeAfter = 2;
 
             while (this.IsGameOver(player) == false)
             {
-                int num = rand.Next(0, numberOfDirections);
-                int times = rand.Next(0, maximumTimesToChangeAfter);
+                int randomIndex = rand.Next(0, numberOfDirections);
 
-                if (pathX + dirX[num] >= 0 &&
-                    pathX + dirX[num] < GlobalConstants.GridRowsCount &&
-                    pathY + dirY[num] >= 0 &&
-                    pathY + dirY[num] < GlobalConstants.GridColsCount)
+                var nextPosition = new Position(player.Position.X + dirX[randomIndex], player.Position.Y + dirY[randomIndex]);
+
+                if (IsInsideGrid(nextPosition, generatedGrid))
                 {
-                    pathX += dirX[num];
-                    pathY += dirY[num];
-                    var currentCell = generatedGrid.GetCell(pathY, pathX);
-                    if (currentCell == GlobalConstants.PlayerSignSymbol)
-                    {
-                        continue;
-                    }
-
-                    generatedGrid.SetCell(pathY, pathX, GlobalConstants.FreeCellSymbol);
+                    player.Position = nextPosition;
+                    generatedGrid.SetCell(player.Position.X, player.Position.Y, GlobalConstants.FreeCellSymbol);
                 }
             }
+
+            player.Position = new Position(GlobalConstants.StartPlayerPositionX, GlobalConstants.StartPlayerPositionY);
+            generatedGrid.SetCell(GlobalConstants.StartPlayerPositionX, GlobalConstants.StartPlayerPositionY, GlobalConstants.PlayerSignSymbol);
+
+        }
+
+        private bool IsInsideGrid(Position position, Grid grid)
+        {
+            if (position.X >= 0 && position.X < GlobalConstants.GridRowsCount &&
+                    position.Y >= 0 && position.Y < GlobalConstants.GridColsCount)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private bool IsGameOver(IPlayer player)
         {
-            if ((player.Position.X > 0 && player.Position.Y < GlobalConstants.StartPlayerPositionX - 1) &&
-                (player.Position.X > 0 && player.Position.Y < GlobalConstants.StartPlayerPositionY - 1))
+            if ((player.Position.X > 0 && player.Position.X < GlobalConstants.GridRowsCount - 1) &&
+                (player.Position.Y > 0 && player.Position.Y < GlobalConstants.GridColsCount - 1))
             {
                 return false;
             }
