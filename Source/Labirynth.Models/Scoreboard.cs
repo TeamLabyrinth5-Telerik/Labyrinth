@@ -20,7 +20,7 @@
         public void AddPlayer(IPlayer player)
         {
             this.players.Add(player);
-            this.players.OrderByDescending(x => x.MoveCount);
+             this.players = this.players.OrderBy(x => x.MoveCount).ToList();
             this.DeleteAllExceptTopPlayers();
         }
 
