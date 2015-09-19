@@ -154,3 +154,33 @@ Documentation for Team Labyrinth 5 project
 		- from `py` to `StartPlayerPositionY`.
 	- In method `MakeAtLeastOneExitReachable()`:
 		- from `num` to `randomIndex`.
+
+4. Introduced constants:
+	- In class `GlobalConstants`:
+		- `GridColsCount = 7`
+		- `GridRowsCount = 7`
+		- `StartPlayerPositionX = 3`
+		- `StartPlayerPositionY = 3`
+		- `BlockedCellSymbol = 'X'`
+		- `FreeCellSymbol = '-'`
+		- `PlayerSignSymbol = '*'`
+		- `ExitCommand = "EXIT"`
+		- `TopCommand = "TOP"`
+		- `RestartCommand = "RESTART"`
+		- `UpCommand = "U"`
+		- `DownCommand = "D"`
+		- `LeftCommand = "L"`
+		- `RigthCommand = "R"`
+		- `InvalidCommand = "Invalid command!"`
+		- `MinimumPercentageOfBlockedCells = 30`
+		- `MaximumPercentageOfBlockedCells = 50`
+	- In class `GameMessages`:
+	 	- `WelcomeMessage = "Welcome to “Labirinth” game. Please try to escape."`
+		- `HowToPlayMessage = "Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game."`	
+		- `InviteUserInputMessage = "Enter your move (L=left, R-right, U=up, D=down): "`
+		- `WrongInputMessage = "Invalid command!"`
+		- `WrongInputAndContinueMessage = "Invalid Command!\n**Press a key to continue**"`
+		- `EnterNameMessage = "**Please put down your name:**"`
+		- `WonGameMessage = "Congratulations! You've exited the labirynth in {0} moves."`
+		- `EmptyScoreBoardMessage = "The scoreboard is empty."`
+
