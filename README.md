@@ -136,3 +136,13 @@ Documentation for Team Labyrinth 5 project
 	-  Labyrinth.Models contains game elements in classes: Grid.cs, Player.cs, Position.cs, Scoreboard.cs.
 	-  Extracted all Enumerations in folder with name Enums.
 	-  Extracted all Interfaces in folder with name Interfaces.
+
+2. Reformatted the source code:
+	- Removed empty lines in `MakeAtleastOneExitReachable()`
+	- Removed empty lines in `PrintScore()`
+	- Inserted new lines between all methods.
+	- Split lines containing several statements into several simple lines
+	- Formatted the curly braces { and } according to the best practices for the C# language
+	- Put { and } after all conditionals and loops 
+	- Character casing: variables and fields named with camelCase; types and methods named with PascalCase
+	- Formatted all other elements of the source code according to the best practices of the 'HQC' course
