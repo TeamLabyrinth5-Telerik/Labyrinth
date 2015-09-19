@@ -1,4 +1,4 @@
-﻿namespace Labirynth.Models.Interfaces
+﻿namespace Labyrinth.Models.Interfaces
 {
     using System;
 

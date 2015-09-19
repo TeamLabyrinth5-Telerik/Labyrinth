@@ -1,6 +1,6 @@
-﻿namespace Labirynth.Models
+﻿namespace Labyrinth.Models
 {
-    using Labirynth.Common;
+    using Labyrinth.Common;
 
     public class Grid
     {

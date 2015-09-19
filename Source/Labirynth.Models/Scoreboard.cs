@@ -1,9 +1,9 @@
-﻿namespace Labirynth.Models
+﻿namespace Labyrinth.Models
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using Labirynth.Models.Interfaces;
+    using Labyrinth.Models.Interfaces;
 
     public class Scoreboard
     {

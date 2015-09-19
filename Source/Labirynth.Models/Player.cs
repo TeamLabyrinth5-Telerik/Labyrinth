@@ -1,8 +1,8 @@
-﻿namespace Labirynth.Models
+﻿namespace Labyrinth.Models
 {
     using System;
-    using Labirynth.Common;
-    using Labirynth.Models.Interfaces;
+    using Labyrinth.Common;
+    using Labyrinth.Models.Interfaces;
 
     public class Player : IPlayer
     {

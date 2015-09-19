@@ -1,4 +1,4 @@
-High-Quality Programming Code – Team Projects
+﻿High-Quality Programming Code – Team Projects
 =============================================
 
 Overview
@@ -118,3 +118,12 @@ Sample Refactoring Documentation for Project “Game 15”
 6.  Introduced class `ScoreBoard` and moved all related functionality in it.
 7.  Moved method `GenerateRandomNumber(int start, int end)` to separate class `RandomUtils`.
 8.  …
+
+
+
+
+Documentation
+Team Labyrinth 5
+
+
+1. 

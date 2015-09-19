@@ -1,10 +1,10 @@
-﻿namespace Labirynth.Logic
+﻿namespace Labyrinth.Logic
 {
     using System;
-    using Labirynth.Common;
-    using Labirynth.Logic.Interfaces;
-    using Labirynth.Models;
-    using Labirynth.Models.Interfaces;
+    using Labyrinth.Common;
+    using Labyrinth.Logic.Interfaces;
+    using Labyrinth.Models;
+    using Labyrinth.Models.Interfaces;
 
     public class Initializer : IInitializer
     {

@@ -1,6 +1,6 @@
-﻿namespace Labirynth.Logic.Interfaces
+﻿namespace Labyrinth.Logic.Interfaces
 {
-    using Labirynth.Common.Enums;
+    using Labyrinth.Common.Enums;
 
     public interface IUserInterface
     {

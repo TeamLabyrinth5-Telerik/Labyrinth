@@ -1,4 +1,4 @@
-﻿namespace Labirynth.Models
+﻿namespace Labyrinth.Models
 {
     public struct Position
     {

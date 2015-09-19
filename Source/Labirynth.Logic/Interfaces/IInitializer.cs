@@ -1,7 +1,7 @@
-﻿namespace Labirynth.Logic.Interfaces
+﻿namespace Labyrinth.Logic.Interfaces
 {
-    using Labirynth.Models;
-    using Labirynth.Models.Interfaces;
+    using Labyrinth.Models;
+    using Labyrinth.Models.Interfaces;
 
     public interface IInitializer
     {

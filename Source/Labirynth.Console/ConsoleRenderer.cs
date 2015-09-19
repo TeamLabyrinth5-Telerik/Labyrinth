@@ -1,10 +1,10 @@
-﻿namespace Labirynth.Console
+﻿namespace Labyrinth.Console
 {
     using System;
     using System.Collections.Generic;
-    using Labirynth.Common;
-    using Labirynth.Logic.Interfaces;
-    using Labirynth.Models;
+    using Labyrinth.Common;
+    using Labyrinth.Logic.Interfaces;
+    using Labyrinth.Models;
 
     public class ConsoleRenderer : IRenderer
     {

@@ -1,4 +1,4 @@
-﻿namespace Labirynth.Common.Enums
+﻿namespace Labyrinth.Common.Enums
 {
     public enum Commands
     {

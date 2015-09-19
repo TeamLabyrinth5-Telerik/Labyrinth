@@ -1,4 +1,4 @@
-﻿namespace Labirynth.Common
+﻿namespace Labyrinth.Common
 {
     public class GameMassages
     {

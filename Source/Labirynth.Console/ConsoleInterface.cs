@@ -1,9 +1,9 @@
-﻿namespace Labirynth.Console
+﻿namespace Labyrinth.Console
 {
     using System;
-    using Labirynth.Common;
-    using Labirynth.Common.Enums;
-    using Labirynth.Logic.Interfaces;
+    using Labyrinth.Common;
+    using Labyrinth.Common.Enums;
+    using Labyrinth.Logic.Interfaces;
 
     public class ConsoleInterface : IUserInterface
     {
