@@ -122,18 +122,17 @@ Sample Refactoring Documentation for Project “Game 15”
 
 
 
-Documentation
-Team Labyrinth 5
-
+Documentation for Team Labyrinth 5 project                                                                                                                       
+------------------------------------------------------
 
 1. Redesigned the project structure Team Labyrinth 5.
-• Renamed the project solution from Code Quality – Project 1 to Labyrinth.
-• Renamed the main class from LabyrinthTest to LabyrinthMain.
-• Extracted each class in separate file with good names likes Engine.cs, Initializer.cs.
-• Added new projects which contains logically related classes.
-• Labyrinth.Common contains solutions constants in classes: GameMessages.cs, GlobalConstants.cs.
-• Labyrinth.Console contains classes: ConsoleInterface.cs, Console.Renderer, LabyrinthMain.cs (entry point of the Labyrinth).
-• Labyrinth.Logic contains game logic in classes: Engine.cs, Initializer.cs.
-• Labyrinth.Models contains game elements in classes: Grid.cs, Player.cs, Position.cs, Scoreboard.cs.
-• Extracted all Enumerations in folder with name Enums.
-• Extracted all Interfaces in folder with name Interfaces.
+	-  Renamed the project solution from Code Quality – Project 1 to Labyrinth.
+	-  Renamed the main class from LabyrinthTest to LabyrinthMain.
+	-  Extracted each class in separate file with good names likes Engine.cs, Initializer.cs.
+	-  Added new projects which contains logically related classes.
+	-  Labyrinth.Common contains solutions constants in classes: GameMessages.cs, GlobalConstants.cs.
+	-  Labyrinth.Console contains classes: ConsoleInterface.cs, Console.Renderer, LabyrinthMain.cs (entry point of the Labyrinth).
+	-  Labyrinth.Logic contains game logic in classes: Engine.cs, Initializer.cs.
+	-  Labyrinth.Models contains game elements in classes: Grid.cs, Player.cs, Position.cs, Scoreboard.cs.
+	-  Extracted all Enumerations in folder with name Enums.
+	-  Extracted all Interfaces in folder with name Interfaces.
