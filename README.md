@@ -155,7 +155,7 @@ Documentation for Team Labyrinth 5 project
 	- In method `MakeAtLeastOneExitReachable()`:
 		- from `num` to `randomIndex`.
 
-4. Introduced constants:
+4. Introduced project `Labyrinth.Common` with constants:
 	- In class `GlobalConstants`:
 		- `GridColsCount = 7`
 		- `GridRowsCount = 7`
@@ -184,3 +184,8 @@ Documentation for Team Labyrinth 5 project
 		- `WonGameMessage = "Congratulations! You've exited the labirynth in {0} moves."`
 		- `EmptyScoreBoardMessage = "The scoreboard is empty."`
 
+5. Introduced project `Labyrinth.Console`:
+	- Moved class `LabyrinthTest` to `LabyrinthMain`.
+	- Moved method `ExecudeCommand()` to `GetCommandFromInput()`.
+	- Extracted method `GetUserInput()` from method `PlayGame()`.
+	- Introduced method `ExitGame()`.
