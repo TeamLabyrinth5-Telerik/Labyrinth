@@ -189,3 +189,12 @@ Documentation for Team Labyrinth 5 project
 	- Moved method `ExecudeCommand()` to `GetCommandFromInput()`.
 	- Extracted method `GetUserInput()` from method `PlayGame()`.
 	- Introduced method `ExitGame()`.
+
+6. Introduced project ``LabyrinthLogic`:
+	- Moved class `ExecuteCommand()` to `LabyrinthLogic`.
+	- Introduced method `UpdateScoreBoard()`.
+	- Introduced method `Engine()`.
+	- Extracted method `Run()` .
+	- Extracted method `RestartGame()`.
+	- Extracted method `SaveScore()`.
+	- Extracted method `Move()`.
