@@ -189,18 +189,27 @@ Documentation for Team Labyrinth 5 project
 	- Moved method `ExecudeCommand()` to `GetCommandFromInput()`.
 	- Extracted method `GetUserInput()` from method `PlayGame()`.
 	- Introduced method `ExitGame()`.
-	- Introduced class `Initializer`.
-	- Moved method `MakeAtLeastOneExitReachable()` to `Initializer`.
-	- Moved method `IsGameOver()` to `Initializer`.
-	- Moved method `IsInsideGrid()` to `Initializer`.
-	- 
+
 6. Introduced project `LabyrinthLogic`:
-	- Moved class `ExecuteCommand()` to `LabyrinthLogic`.
 	- Introduced Class `Engine`.
-	- Introduced method `UpdateScoreBoard()`.
-	- Extracted method `Run()` .
-	- Extracted method `RestartGame()`.
-	- Extracted method `SaveScore()`.
-	- Extracted method `Move()`.
+		- Introduced method `UpdateScoreBoard()`.
+		- Moved method `ExecuteCommand()` to `LabyrinthLogic`.
+		- Extracted method `Run()` .
+		- Extracted method `RestartGame()`.
+		- Extracted method `SaveScore()`.
+		- Extracted method `Move()`.
+	- Introduced class `Initializer`.
+		- Moved method `MakeAtLeastOneExitReachable()` to `Initializer`.
+		- Moved method `IsGameOver()` to `Initializer`.
+		- Moved method `IsInsideGrid()` to `Initializer`.
 	
 7. Introduced project `LabyrinthModels`:
+	- Introduced class `Grid` to `LabyrinthModels`.
+		- Extracted method `SetCell()`.
+		- Extracted method `GetCell()`.
+		- Introduced class `Player` to `LabyrinthModels`.
+		- Introduced method `Position()` in class `Player`.
+	- Introduced class `Position` to `LabyrinthModels`.
+	- Introduced class `Scoreboard` to `LabyrinthModels`.
+		- Introduced method `AddPlayer()`.
+		- Introduced method `DeleteAllExceptTopPlayers()`.
