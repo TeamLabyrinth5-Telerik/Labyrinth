@@ -61,6 +61,7 @@
                 case Commands.L:
                     {
                         player.MoveCount++;
+                        Console.Clear();
                         this.Move(0, -1);
                         break;
                     }
@@ -68,6 +69,7 @@
                 case Commands.R:
                     {
                         player.MoveCount++;
+                        Console.Clear();
                         this.Move(0, 1);
                         break;
                     }
@@ -75,6 +77,7 @@
                 case Commands.U:
                     {
                         player.MoveCount++;
+                        Console.Clear();
                         this.Move(-1, 0);
                         break;
                     }
@@ -82,6 +85,7 @@
                 case Commands.D:
                     {
                         player.MoveCount++;
+                        Console.Clear();
                         this.Move(1, 0);
                         break;
                     }
