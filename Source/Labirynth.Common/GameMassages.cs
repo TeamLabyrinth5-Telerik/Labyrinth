@@ -10,7 +10,7 @@
 
         public const string WrongInputMessage = "Invalid command!";
 
-        public const string WrongInputAndContinueMessage = "Invalid Command!\n**Press a key to continue**";
+        public const string WrongInputAndContinueMessage = "Invalid Command!\n**Press Enter to continue**";
 
         public const string EnterNameMessage = "**Please put down your name:**";
 

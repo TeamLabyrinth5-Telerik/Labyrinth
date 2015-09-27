@@ -111,12 +111,13 @@
                     }
 
                 case Commands.Invalid:
-                    this.renderer.PrintMessage(GameMassages.WrongInputMessage);
+                    this.renderer.PrintMessage(GameMassages.WrongInputMessage);                    
                     break;
                 default:
                     {
                         this.renderer.PrintMessage(GameMassages.WrongInputAndContinueMessage);
                         this.userInterface.GetUserInput();
+
                         break;
                     }
             }

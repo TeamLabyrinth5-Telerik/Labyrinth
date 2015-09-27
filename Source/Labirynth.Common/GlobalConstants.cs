@@ -15,9 +15,13 @@
         public const string TopCommand = "TOP";
         public const string RestartCommand = "RESTART";
         public const string UpCommand = "UPARROW";
+        public const string UpKeyCommand = "U";
         public const string DownCommand = "DOWNARROW";
+        public const string DownKeyCommand = "D";
+        public const string LeftKeyCommand = "L";
         public const string LeftCommand = "LEFTARROW";
         public const string RigthCommand = "RIGHTARROW";
+        public const string RigthKeyCommand = "R";
         public const string InvalidCommand = "Invalid command!";
 
         public const int MinimumPercentageOfBlockedCells = 30;

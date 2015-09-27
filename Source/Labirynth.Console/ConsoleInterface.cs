@@ -12,15 +12,13 @@
             var input = Console.ReadLine();
             return input;
         }
+
         public string GetButtonInput()
         {
             var input = Console.ReadKey();
-            Console.WriteLine(input.Key.ToString());
             return input.Key.ToString();
         }
-
-
-
+        
         public Commands GetCommandFromInput()
         {
             string input = this.GetButtonInput().ToUpper();
@@ -40,6 +38,14 @@
                 case GlobalConstants.LeftCommand:
                     return Commands.L;
                 case GlobalConstants.RigthCommand:
+                    return Commands.R;
+                case GlobalConstants.UpKeyCommand:
+                    return Commands.U;
+                case GlobalConstants.DownKeyCommand:
+                    return Commands.D;
+                case GlobalConstants.LeftKeyCommand:
+                    return Commands.L;
+                case GlobalConstants.RigthKeyCommand:
                     return Commands.R;
                 default:
                     return Commands.Invalid;
