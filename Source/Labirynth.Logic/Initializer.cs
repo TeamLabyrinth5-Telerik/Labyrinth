@@ -5,6 +5,7 @@
     using Labyrinth.Logic.Interfaces;
     using Labyrinth.Models;
     using Labyrinth.Models.Interfaces;
+    using Labyrinth.Common;
 
     public class Initializer : IInitializer
     {
@@ -14,15 +15,15 @@
         }
 
         private Grid GenerateGrid(IPlayer player, Grid grid)
-        {            
-            Random rand = new Random();
-            int percentageOfBlockedCells = rand.Next(GlobalConstants.MinimumPercentageOfBlockedCells, GlobalConstants.MaximumPercentageOfBlockedCells);
+        {
+            DefaultRandomGenerator random = DefaultRandomGenerator.Instance();
+            int percentageOfBlockedCells = random.Next(GlobalConstants.MinimumPercentageOfBlockedCells, GlobalConstants.MaximumPercentageOfBlockedCells);
 
             for (int row = 0; row < GlobalConstants.GridRowsCount; row++)
             {
                 for (int col = 0; col < GlobalConstants.GridColsCount; col++)
                 {
-                    int num = rand.Next(0, 100);
+                    int num = random.Next(0, 100);
                     if (num < percentageOfBlockedCells)
                     {
                         grid.SetCell(row, col, GlobalConstants.BlockedCellSymbol);
@@ -42,14 +43,14 @@
         
         private void MakeAtLeastOneExitReachable(Grid generatedGrid, IPlayer player)
         {
-            Random rand = new Random();
+            DefaultRandomGenerator random = DefaultRandomGenerator.Instance();
             int[] dirX = { 0, 0, 1, -1 };
             int[] dirY = { 1, -1, 0, 0 };
             int numberOfDirections = 4;
 
             while (this.IsGameOver(player) == false)
             {
-                int randomIndex = rand.Next(0, numberOfDirections);
+                int randomIndex = random.Next(0, numberOfDirections);
 
                 var nextPosition = new Position(player.Position.X + dirX[randomIndex], player.Position.Y + dirY[randomIndex]);
 

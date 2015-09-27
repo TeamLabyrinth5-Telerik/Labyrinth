@@ -44,9 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DefaultRandomGenerator.cs" />
     <Compile Include="Enums\Commands.cs" />
     <Compile Include="GameMassages.cs" />
     <Compile Include="GlobalConstants.cs" />
+    <Compile Include="Interfaces\IRandomGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -8,6 +8,7 @@
     public class Scoreboard
     {
         private List<IPlayer> players = new List<IPlayer>();
+    
 
         public List<IPlayer> Players
         {
