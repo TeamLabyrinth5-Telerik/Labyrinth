@@ -5,7 +5,7 @@
 
     /// <summary>
     /// Represents default random numbers generator
-    /// Implement Singleton Design Pattern
+    /// Implement Singleton Design Pattern.
     /// </summary>
     /// <seealso cref="Labyrinth.Common.Interfaces.IRandomGenerator"/>
     public sealed class DefaultRandomGenerator : IRandomGenerator
