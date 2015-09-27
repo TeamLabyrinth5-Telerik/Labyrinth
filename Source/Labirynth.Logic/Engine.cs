@@ -54,6 +54,7 @@
             }
         }
 
+        
         private void ExecuteCommand(Commands command, IPlayer player)
         {
             switch (command)
@@ -81,6 +82,7 @@
                         this.Move(-1, 0);
                         break;
                     }
+
 
                 case Commands.D:
                     {

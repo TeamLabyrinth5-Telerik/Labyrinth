@@ -14,10 +14,10 @@
         public const string ExitCommand = "EXIT";
         public const string TopCommand = "TOP";
         public const string RestartCommand = "RESTART";
-        public const string UpCommand = "U";
-        public const string DownCommand = "D";
-        public const string LeftCommand = "L";
-        public const string RigthCommand = "R";
+        public const string UpCommand = "UPARROW";
+        public const string DownCommand = "DOWNARROW";
+        public const string LeftCommand = "LEFTARROW";
+        public const string RigthCommand = "RIGHTARROW";
         public const string InvalidCommand = "Invalid command!";
 
         public const int MinimumPercentageOfBlockedCells = 30;

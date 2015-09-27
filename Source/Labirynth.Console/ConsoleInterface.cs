@@ -12,10 +12,18 @@
             var input = Console.ReadLine();
             return input;
         }
+        public string GetButtonInput()
+        {
+            var input = Console.ReadKey();
+            Console.WriteLine(input.Key.ToString());
+            return input.Key.ToString();
+        }
+
+
 
         public Commands GetCommandFromInput()
         {
-            string input = this.GetUserInput().ToUpper();
+            string input = this.GetButtonInput().ToUpper();
 
             switch (input)
             {
