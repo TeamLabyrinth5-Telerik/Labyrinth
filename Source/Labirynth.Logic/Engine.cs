@@ -109,7 +109,7 @@
 
         private void ProcessSaveCommand()
         {
-            this.gridMemory.Memento = this.grid.SaveMemento();
+            this.gridMemory.Memento = this.SaveMemento();
             this.renderer.PrintMessage(GameMassages.GameSaved);
         }
 
@@ -117,7 +117,7 @@
         {
             try
             {
-                this.grid.RestoreMemento(this.gridMemory.Memento);
+                this.RestoreMemento(this.gridMemory.Memento);
                 this.renderer.PrintMessage(GameMassages.GameLoaded);
             }
             catch (NullReferenceException)
@@ -198,6 +198,19 @@
             }
 
             return true;
+        }
+
+        public Memento SaveMemento()
+        {
+            char[,] currentField = (char[,])this.grid.Field.Clone();
+            Position currentPlayerPosition = (Position)this.player.Position.Clone();
+            return new Memento(currentField, currentPlayerPosition);
+        }
+
+        public void RestoreMemento(Memento memento)
+        {
+            this.grid.Field = (char[,])memento.Field.Clone();
+            this.player.Position = memento.Position;
         }
     }
 }

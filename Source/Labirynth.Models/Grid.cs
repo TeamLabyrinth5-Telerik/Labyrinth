@@ -38,16 +38,5 @@
         {
             this.Field[position.X, position.Y] = value;
         }
-
-        public Memento SaveMemento()
-        {
-            char[,] currentField = (char[,])this.Field.Clone();
-            return new Memento(currentField);
-        }
-
-        public void RestoreMemento(Memento memento)
-        {
-            this.Field = (char[,])memento.Field.Clone();
-        }
     }
 }

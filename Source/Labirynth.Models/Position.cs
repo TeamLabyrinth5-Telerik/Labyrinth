@@ -1,6 +1,8 @@
 ﻿namespace Labyrinth.Models
 {
-    public struct Position
+    using System;
+
+    public struct Position : ICloneable
     {
         private int x;
         private int y;
@@ -36,6 +38,11 @@
             {
                 this.y = value;
             }
+        }
+
+        public object Clone()
+        {
+            return new Position (this.X, this.Y);
         }
     }
 }
