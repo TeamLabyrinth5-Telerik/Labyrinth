@@ -14,15 +14,18 @@
         public const string ExitCommand = "EXIT";
         public const string TopCommand = "TOP";
         public const string RestartCommand = "RESTART";
-        public const string UpCommand = "UPARROW";
-        public const string UpKeyCommand = "U";
-        public const string DownCommand = "DOWNARROW";
-        public const string DownKeyCommand = "D";
-        public const string LeftKeyCommand = "L";
-        public const string LeftCommand = "LEFTARROW";
-        public const string RigthCommand = "RIGHTARROW";
-        public const string RigthKeyCommand = "R";
+        public const string UpCommand = "U";
+        public const string DownCommand = "D";
+        public const string LeftCommand = "L";
+        public const string RigthCommand = "R";
+        public const string UpKeyCommand = "UPARROW";
+        public const string DownKeyCommand = "DOWNARROW";
+        public const string LeftKeyCommand = "LEFTARROW";
+        public const string RigthKeyCommand = "RIGHTARROW";
+        
         public const string InvalidCommand = "Invalid command!";
+        public const string SaveCommand = "SAVE";
+        public const string LoadCommand = "LOAD";
 
         public const int MinimumPercentageOfBlockedCells = 30;
         public const int MaximumPercentageOfBlockedCells = 50;

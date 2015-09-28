@@ -9,5 +9,7 @@
         void PrintScore(Scoreboard score);
 
         void PrintMessage(string message);
+
+        void ClearConsole();
     }
 }

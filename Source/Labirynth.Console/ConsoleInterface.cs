@@ -21,7 +21,7 @@
         
         public Commands GetCommandFromInput()
         {
-            string input = this.GetButtonInput().ToUpper();
+            string input = this.GetUserInput().ToUpper();
 
             switch (input)
             {
@@ -47,6 +47,10 @@
                     return Commands.L;
                 case GlobalConstants.RigthKeyCommand:
                     return Commands.R;
+                case GlobalConstants.SaveCommand:
+                    return Commands.Save;
+                case GlobalConstants.LoadCommand:
+                    return Commands.Load;
                 default:
                     return Commands.Invalid;
             }

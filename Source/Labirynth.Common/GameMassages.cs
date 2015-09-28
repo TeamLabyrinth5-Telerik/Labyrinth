@@ -17,5 +17,11 @@
         public const string WonGameMessage = "Congratulations! You've exited the labirynth in {0} moves.";
 
         public const string EmptyScoreBoardMessage = "The scoreboard is empty.";
+
+        public const string GameSaved = "Game saved.";
+
+        public const string GameLoaded = "Game loaded.";
+
+        public const string LoadError = "There are no saved state.";
     }
 }

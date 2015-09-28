@@ -4,14 +4,16 @@
 
     public class Grid
     {
-        private char[,] grid;
+        //private char[,] grid;
 
         public Grid(int rows = GlobalConstants.GridRowsCount, int cols = GlobalConstants.GridColsCount)
         {
             this.TotalRows = rows;
             this.TotalCols = cols;
-            this.grid = new char[rows, cols];
+            this.Field = new char[rows, cols];
         }
+
+        public char[,] Field { get; set; }
 
         public int TotalRows { get; private set; }
 
@@ -19,22 +21,33 @@
 
         public char GetCell(int row, int col)
         {
-            return this.grid[row, col];
+            return this.Field[row, col];
         }
 
         public void SetCell(int row, int col, char value)
         {
-            this.grid[row, col] = value;
+            this.Field[row, col] = value;
         }
 
         public char GetCell(Position position)
         {
-            return this.grid[position.X, position.Y];
+            return this.Field[position.X, position.Y];
         }
 
         public void SetCell(Position position, char value)
         {
-            this.grid[position.X, position.Y] = value;
+            this.Field[position.X, position.Y] = value;
+        }
+
+        public Memento SaveMemento()
+        {
+            char[,] currentField = (char[,])this.Field.Clone();
+            return new Memento(currentField);
+        }
+
+        public void RestoreMemento(Memento memento)
+        {
+            this.Field = (char[,])memento.Field.Clone();
         }
     }
 }

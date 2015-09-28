@@ -9,6 +9,8 @@
         R,
         D,
         L,
-        Invalid
+        Invalid,
+        Save,
+        Load
     }
 }

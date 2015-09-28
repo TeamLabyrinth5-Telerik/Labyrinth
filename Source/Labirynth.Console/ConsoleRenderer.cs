@@ -36,5 +36,10 @@
         {
             Console.WriteLine(message);
         }
+
+        public void ClearConsole()
+        {
+            Console.Clear();
+        }
     }
 }

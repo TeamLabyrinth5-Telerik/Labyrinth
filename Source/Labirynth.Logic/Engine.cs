@@ -14,6 +14,7 @@
         private IInitializer initializer;
         private IPlayer player;
         private Grid grid;
+        private GridMemory gridMemory;
         private Scoreboard scoreBoard;
         private bool isGameOver;
 
@@ -25,6 +26,7 @@
             this.scoreBoard = new Scoreboard();
             this.player = new Player();
             this.grid = new Grid(GlobalConstants.GridRowsCount, GlobalConstants.GridColsCount);
+            this.gridMemory = new GridMemory();
         }
 
         public void Run()
@@ -41,7 +43,7 @@
                     this.renderer.PrintMessage(string.Format(GameMassages.WonGameMessage, this.player.MoveCount));
                     this.SaveScore();
                     this.renderer.PrintScore(this.scoreBoard);
-                    this.RestartGame();
+                    this.ProcessRestartGameCommand();
                 }
 
                 this.renderer.PrintLabirynth(this.grid);
@@ -54,76 +56,77 @@
             }
         }
 
-        
         private void ExecuteCommand(Commands command, IPlayer player)
         {
             switch (command)
             {
                 case Commands.L:
-                    {
-                        player.MoveCount++;
-                        Console.Clear();
-                        this.Move(0, -1);
-                        break;
-                    }
-
+                    player.MoveCount++;
+                    this.renderer.ClearConsole();
+                    this.ProcessMoveCommand(0, -1);
+                    break;
                 case Commands.R:
-                    {
-                        player.MoveCount++;
-                        Console.Clear();
-                        this.Move(0, 1);
-                        break;
-                    }
-
+                    player.MoveCount++;
+                    this.renderer.ClearConsole();
+                    this.ProcessMoveCommand(0, 1);
+                    break;
                 case Commands.U:
-                    {
-                        player.MoveCount++;
-                        Console.Clear();
-                        this.Move(-1, 0);
-                        break;
-                    }
-
-
+                    player.MoveCount++;
+                    this.renderer.ClearConsole();
+                    this.ProcessMoveCommand(-1, 0);
+                    break;
                 case Commands.D:
-                    {
-                        player.MoveCount++;
-                        Console.Clear();
-                        this.Move(1, 0);
-                        break;
-                    }
-
+                    player.MoveCount++;
+                    this.renderer.ClearConsole();
+                    this.ProcessMoveCommand(1, 0);
+                    break;
+                case Commands.Save:
+                    this.renderer.ClearConsole();
+                    this.ProcessSaveCommand();
+                    break;
+                case Commands.Load:
+                    this.renderer.ClearConsole();
+                    this.ProcessLoadCommand();
+                    break;
                 case Commands.Restart:
-                    {
-                        this.RestartGame();
-                        break;
-                    }
-
+                    this.ProcessRestartGameCommand();
+                    break;
                 case Commands.Top:
-                    {
-                        this.renderer.PrintScore(this.scoreBoard);
-                        break;
-                    }
-
+                    this.ProcessPrintScoreCommand();
+                    break;
                 case Commands.Exit:
-                    {
-                        this.userInterface.ExitGame();
-                        break;
-                    }
-
+                    this.ProcessExitCommand();
+                    break;
                 case Commands.Invalid:
-                    this.renderer.PrintMessage(GameMassages.WrongInputMessage);                    
+                    this.ProcessInvalidCommand();
                     break;
                 default:
-                    {
-                        this.renderer.PrintMessage(GameMassages.WrongInputAndContinueMessage);
-                        this.userInterface.GetUserInput();
-
-                        break;
-                    }
+                    this.renderer.PrintMessage(GameMassages.WrongInputAndContinueMessage);
+                    this.userInterface.GetUserInput();
+                    break;
             }
         }
 
-        private void RestartGame()
+        private void ProcessSaveCommand()
+        {
+            this.gridMemory.Memento = this.grid.SaveMemento();
+            this.renderer.PrintMessage(GameMassages.GameSaved);
+        }
+
+        private void ProcessLoadCommand()
+        {
+            try
+            {
+                this.grid.RestoreMemento(this.gridMemory.Memento);
+                this.renderer.PrintMessage(GameMassages.GameLoaded);
+            }
+            catch (NullReferenceException)
+            {
+                this.renderer.PrintMessage(GameMassages.LoadError);
+            }
+        }
+
+        private void ProcessRestartGameCommand()
         {
             this.isGameOver = false;
             this.player = new Player();
@@ -131,14 +134,17 @@
             this.initializer.InitializeGame(this.grid, this.player);
         }
 
-        private void SaveScore()
+        private void ProcessPrintScoreCommand()
         {
-            this.renderer.PrintMessage(GameMassages.EnterNameMessage);
-            this.player.Name = this.userInterface.GetUserInput();
-            this.scoreBoard.AddPlayer(this.player);
+            this.renderer.PrintScore(this.scoreBoard);
         }
 
-        private void Move(int dirX, int dirY)
+        private void ProcessInvalidCommand()
+        {
+            this.renderer.PrintMessage(GameMassages.WrongInputMessage);
+        }
+
+        private void ProcessMoveCommand(int dirX, int dirY)
         {
             if (this.IsMoveValid(new Position(this.player.Position.X + dirX, this.player.Position.Y + dirY)) == false)
             {
@@ -158,6 +164,18 @@
                 this.player.Position = new Position(this.player.Position.X + dirX, this.player.Position.Y + dirY);
                 return;
             }
+        }
+
+        private void ProcessExitCommand()
+        {
+            this.userInterface.ExitGame();
+        }
+
+        private void SaveScore()
+        {
+            this.renderer.PrintMessage(GameMassages.EnterNameMessage);
+            this.player.Name = this.userInterface.GetUserInput();
+            this.scoreBoard.AddPlayer(this.player);
         }
 
         private bool IsMoveValid(Position position)

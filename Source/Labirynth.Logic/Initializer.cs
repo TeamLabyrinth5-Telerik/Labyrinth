@@ -5,7 +5,6 @@
     using Labyrinth.Logic.Interfaces;
     using Labyrinth.Models;
     using Labyrinth.Models.Interfaces;
-    using Labyrinth.Common;
 
     public class Initializer : IInitializer
     {
