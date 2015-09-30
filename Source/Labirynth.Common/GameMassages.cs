@@ -4,7 +4,7 @@
     {
         public const string WelcomeMessage = "Welcome to “Labirinth” game. Please try to escape.";
 
-        public const string HowToPlayMessage = "Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.";
+        public const string HowToPlayMessage = " Press '1' to start a new game \n Press '3' to view the top scoreboard \n Press '4' to quit the game. \n Use U, D, L, R (up, down, left, right) to navigate";
 
         public const string InviteUserInputMessage = "Enter your move (L=left, R-right, U=up, D=down): ";
 

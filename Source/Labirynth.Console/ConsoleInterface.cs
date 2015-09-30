@@ -16,12 +16,14 @@
         public string GetButtonInput()
         {
             var input = Console.ReadKey();
-            return input.Key.ToString();
+            Console.WriteLine(input);
+            return input.KeyChar.ToString();
         }
 
         public Commands GetCommandFromInput()
         {
-            string input = this.GetUserInput().ToUpper();
+                string input = this.GetButtonInput().ToUpper();
+           // string input = this.GetUserInput().ToUpper();
 
             switch (input)
             {

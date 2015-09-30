@@ -29,6 +29,7 @@
             this.gridMemory = new GridMemory();
         }
 
+
         public void Run()
         {
             while (true)
@@ -141,7 +142,9 @@
 
         private void ProcessInvalidCommand()
         {
+            this.renderer.ClearConsole();
             this.renderer.PrintMessage(GameMassages.WrongInputMessage);
+           
         }
 
         private void ProcessMoveCommand(int dirX, int dirY)
@@ -173,6 +176,7 @@
 
         private void ProcessStartCommand()
         {
+           
             this.initializer.InitializeGame(this.grid, this.player);
 
             while (true)
@@ -183,6 +187,7 @@
                     this.renderer.PrintMessage(string.Format(GameMassages.WonGameMessage, this.player.MoveCount));
                     this.SaveScore();
                     this.renderer.ClearConsole();
+                  
 
                     Console.WriteLine("Do you want to play again ?");
                     Console.WriteLine("Yes/No");
@@ -192,7 +197,10 @@
                     {
                         this.renderer.ClearConsole();
                         Console.WriteLine("Bye bye");
-                        this.userInterface.ExitGame();
+                        // this.userInterface.ExitGame();
+                        this.GoBackToInitialMenu();
+                        this.isGameOver = false;
+                        break;
                     }
                     else if (answer == "YES")
                     {
@@ -200,8 +208,7 @@
                         this.ProcessRestartGameCommand();
                     }
 
-
-                }
+                                    }
 
                 this.renderer.PrintLabirynth(this.grid);
 
