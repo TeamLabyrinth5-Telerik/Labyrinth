@@ -10,6 +10,8 @@
 
         void PrintMessage(string message);
 
+        void PrintMenu();
+
         void ClearConsole();
     }
 }

@@ -31,29 +31,16 @@
 
         public void Run()
         {
-            this.renderer.PrintMessage(GameMassages.WelcomeMessage);
-            this.renderer.PrintMessage(GameMassages.HowToPlayMessage);
-            this.initializer.InitializeGame(this.grid, this.player);
-
             while (true)
             {
-                if (this.isGameOver)
-                {
-                    this.renderer.PrintLabirynth(this.grid);
-                    this.renderer.PrintMessage(string.Format(GameMassages.WonGameMessage, this.player.MoveCount));
-                    this.SaveScore();
-                    this.renderer.PrintScore(this.scoreBoard);
-                    this.ProcessRestartGameCommand();
-                }
+                this.renderer.PrintMenu();
+                var command = this.userInterface.GetCommandFromInput();
+                this.renderer.ClearConsole();
 
-                this.renderer.PrintLabirynth(this.grid);
-
-                this.renderer.PrintMessage(GameMassages.InviteUserInputMessage);
-                Commands userCommand = this.userInterface.GetCommandFromInput();
-                this.ExecuteCommand(userCommand, this.player);
-
-                this.isGameOver = this.IsGameOver(this.player.Position.X, this.player.Position.Y);
+                this.ExecuteCommand(command, this.player);
+                this.renderer.ClearConsole();
             }
+
         }
 
         private void ExecuteCommand(Commands command, IPlayer player)
@@ -91,7 +78,7 @@
                 case Commands.Restart:
                     this.ProcessRestartGameCommand();
                     break;
-                case Commands.Top:
+                case Commands.HighScore:
                     this.ProcessPrintScoreCommand();
                     break;
                 case Commands.Exit:
@@ -100,11 +87,23 @@
                 case Commands.Invalid:
                     this.ProcessInvalidCommand();
                     break;
+                case Commands.Start:
+                    this.ProcessStartCommand();
+                    break;
+                case Commands.HowTo:
+                    this.ProcessHowToCommand();
+                    break;
                 default:
                     this.renderer.PrintMessage(GameMassages.WrongInputAndContinueMessage);
                     this.userInterface.GetUserInput();
                     break;
             }
+        }
+
+        private void ProcessHowToCommand()
+        {
+            this.renderer.PrintMessage(GameMassages.HowToPlayMessage);
+            this.GoBackToInitialMenu();
         }
 
         private void ProcessSaveCommand()
@@ -137,6 +136,7 @@
         private void ProcessPrintScoreCommand()
         {
             this.renderer.PrintScore(this.scoreBoard);
+            this.GoBackToInitialMenu();
         }
 
         private void ProcessInvalidCommand()
@@ -169,6 +169,69 @@
         private void ProcessExitCommand()
         {
             this.userInterface.ExitGame();
+        }
+
+        private void ProcessStartCommand()
+        {
+            this.initializer.InitializeGame(this.grid, this.player);
+
+            while (true)
+            {
+                if (this.isGameOver)
+                {
+                    this.renderer.PrintLabirynth(this.grid);
+                    this.renderer.PrintMessage(string.Format(GameMassages.WonGameMessage, this.player.MoveCount));
+                    this.SaveScore();
+                    this.renderer.ClearConsole();
+
+                    Console.WriteLine("Do you want to play again ?");
+                    Console.WriteLine("Yes/No");
+
+                    var answer = this.userInterface.GetUserInput().ToUpper();
+                    if (answer == "NO")
+                    {
+                        this.renderer.ClearConsole();
+                        Console.WriteLine("Bye bye");
+                        this.userInterface.ExitGame();
+                    }
+                    else if (answer == "YES")
+                    {
+                        this.renderer.ClearConsole();
+                        this.ProcessRestartGameCommand();
+                    }
+
+
+                }
+
+                this.renderer.PrintLabirynth(this.grid);
+
+                this.renderer.PrintMessage(GameMassages.InviteUserInputMessage);
+                Commands userCommand = this.userInterface.GetCommandFromInput();
+                this.ExecuteCommand(userCommand, this.player);
+
+                this.isGameOver = this.IsGameOver(this.player.Position.X, this.player.Position.Y);
+            }
+        }
+
+        private void GoBackToInitialMenu()
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.CursorVisible = false;
+            Console.WriteLine("\nPress Backspace to go back");
+            var pressedKey = Console.ReadKey(true);
+
+            while (pressedKey.Key != ConsoleKey.Backspace)
+            {
+                pressedKey = Console.ReadKey(true);
+
+                if (pressedKey.Key == ConsoleKey.Backspace)
+                {
+                    break;
+                }
+            }
+
+            this.renderer.ClearConsole();
+            this.renderer.PrintMenu();
         }
 
         private void SaveScore()

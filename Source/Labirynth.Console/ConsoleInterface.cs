@@ -18,22 +18,24 @@
             var input = Console.ReadKey();
             return input.Key.ToString();
         }
-        
+
         public Commands GetCommandFromInput()
         {
             string input = this.GetUserInput().ToUpper();
 
             switch (input)
             {
-                case GlobalConstants.ExitCommand:   
+                case GlobalConstants.ExitCommand:
                     return Commands.Exit;
-                case GlobalConstants.TopCommand:
-                    return Commands.Top;
-                case GlobalConstants.RestartCommand:    
+                case GlobalConstants.Exit:
+                    return Commands.Exit;
+                case GlobalConstants.HighScoreCommand:
+                    return Commands.HighScore;
+                case GlobalConstants.RestartCommand:
                     return Commands.Restart;
                 case GlobalConstants.UpCommand:
                     return Commands.U;
-                case GlobalConstants.DownCommand:    
+                case GlobalConstants.DownCommand:
                     return Commands.D;
                 case GlobalConstants.LeftCommand:
                     return Commands.L;
@@ -51,12 +53,16 @@
                     return Commands.Save;
                 case GlobalConstants.LoadCommand:
                     return Commands.Load;
+                case GlobalConstants.StartCommand:
+                    return Commands.Start;
+                case GlobalConstants.HowToPlayCommand:
+                    return Commands.HowTo;
                 default:
                     return Commands.Invalid;
             }
         }
-		
-		public void ExitGame()
+
+        public void ExitGame()
         {
             Environment.Exit(0);
         }

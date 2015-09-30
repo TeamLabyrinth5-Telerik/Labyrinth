@@ -3,7 +3,7 @@
     public enum Commands
     {
         Restart,
-        Top,
+        HighScore,
         Exit,
         U,
         R,
@@ -11,6 +11,8 @@
         L,
         Invalid,
         Save,
-        Load
+        Load,
+        Start,
+        HowTo
     }
 }
