@@ -12,7 +12,7 @@
             IRenderer renderer = new ConsoleRenderer();
             IInitializer initializer = new Initializer();
 
-            Engine engine = new Engine(renderer, userInterface, initializer);
+            LabyrinthEngine engine = new LabyrinthEngine(renderer, userInterface, initializer);
             engine.Run();
         }
     }

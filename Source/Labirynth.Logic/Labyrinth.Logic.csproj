@@ -45,7 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Engine.cs" />
+    <Compile Include="LabyrinthEngine.cs" />
     <Compile Include="Initializer.cs" />
+    <Compile Include="Interfaces\IEngine.cs" />
     <Compile Include="Interfaces\IInitializer.cs" />
     <Compile Include="Interfaces\IRenderer.cs" />
     <Compile Include="Interfaces\IUserInterface.cs" />
