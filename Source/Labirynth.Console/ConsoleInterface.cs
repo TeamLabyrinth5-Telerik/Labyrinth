@@ -17,13 +17,12 @@
         {
             var input = Console.ReadKey();
             Console.WriteLine(input);
-            return input.KeyChar.ToString();
+            return input.Key.ToString();
         }
 
         public Commands GetCommandFromInput()
         {
-                string input = this.GetButtonInput().ToUpper();
-           // string input = this.GetUserInput().ToUpper();
+              string input = this.GetButtonInput().ToUpper();
 
             switch (input)
             {
@@ -35,14 +34,6 @@
                     return Commands.HighScore;
                 case GlobalConstants.RestartCommand:
                     return Commands.Restart;
-                case GlobalConstants.UpCommand:
-                    return Commands.U;
-                case GlobalConstants.DownCommand:
-                    return Commands.D;
-                case GlobalConstants.LeftCommand:
-                    return Commands.L;
-                case GlobalConstants.RigthCommand:
-                    return Commands.R;
                 case GlobalConstants.UpKeyCommand:
                     return Commands.U;
                 case GlobalConstants.DownKeyCommand:

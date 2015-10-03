@@ -13,6 +13,7 @@
 
         public Player()
         {
+            this.Name = "Guest";
             this.MoveCount = InitialPlayerMoveCount;
             this.Position = new Position(GlobalConstants.StartPlayerPositionX, GlobalConstants.StartPlayerPositionY);
         }
@@ -38,12 +39,10 @@
 
             set
             {
-                if (string.IsNullOrEmpty(value))
-                {                               // TODO: Eventually extract message in constant
-                    throw new ArgumentException("Name cannot be null or empty");
+                if (!string.IsNullOrEmpty(value))
+                {
+                    this.name = value;
                 }
-
-                this.name = value;
             }
         }
 

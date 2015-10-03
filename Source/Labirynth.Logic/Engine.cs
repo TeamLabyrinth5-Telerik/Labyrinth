@@ -29,7 +29,6 @@
             this.gridMemory = new GridMemory();
         }
 
-
         public void Run()
         {
             while (true)
@@ -41,7 +40,6 @@
                 this.ExecuteCommand(command, this.player);
                 this.renderer.ClearConsole();
             }
-
         }
 
         private void ExecuteCommand(Commands command, IPlayer player)
@@ -144,7 +142,6 @@
         {
             this.renderer.ClearConsole();
             this.renderer.PrintMessage(GameMassages.WrongInputMessage);
-           
         }
 
         private void ProcessMoveCommand(int dirX, int dirY)
@@ -176,7 +173,6 @@
 
         private void ProcessStartCommand()
         {
-           
             this.initializer.InitializeGame(this.grid, this.player);
 
             while (true)
@@ -187,17 +183,16 @@
                     this.renderer.PrintMessage(string.Format(GameMassages.WonGameMessage, this.player.MoveCount));
                     this.SaveScore();
                     this.renderer.ClearConsole();
-                  
 
-                    Console.WriteLine("Do you want to play again ?");
-                    Console.WriteLine("Yes/No");
+                    this.renderer.PrintMessage(GameMassages.PlayAgainMessage);
 
                     var answer = this.userInterface.GetUserInput().ToUpper();
                     if (answer == "NO")
                     {
                         this.renderer.ClearConsole();
-                        Console.WriteLine("Bye bye");
-                        // this.userInterface.ExitGame();
+                        this.renderer.PrintMessage(string.Format(GameMassages.GoodByeMessage, this.player.Name));
+
+                        this.userInterface.ExitGame();
                         this.GoBackToInitialMenu();
                         this.isGameOver = false;
                         break;
@@ -207,8 +202,7 @@
                         this.renderer.ClearConsole();
                         this.ProcessRestartGameCommand();
                     }
-
-                                    }
+                }
 
                 this.renderer.PrintLabirynth(this.grid);
 
@@ -224,7 +218,8 @@
         {
             Console.ForegroundColor = ConsoleColor.White;
             Console.CursorVisible = false;
-            Console.WriteLine("\nPress Backspace to go back");
+            this.renderer.PrintMessage(GameMassages.PressBackMessage);
+
             var pressedKey = Console.ReadKey(true);
 
             while (pressedKey.Key != ConsoleKey.Backspace)

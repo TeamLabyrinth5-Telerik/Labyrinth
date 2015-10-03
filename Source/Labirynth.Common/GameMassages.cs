@@ -4,9 +4,9 @@
     {
         public const string WelcomeMessage = "Welcome to “Labirinth” game. Please try to escape.";
 
-        public const string HowToPlayMessage = " Press '1' to start a new game \n Press '3' to view the top scoreboard \n Press '4' to quit the game. \n Use U, D, L, R (up, down, left, right) to navigate";
+        public const string HowToPlayMessage = " Press '1' to start a new game \n Press '3' to view the top scoreboard \n Press '4' to quit the game. \n Use UpArrow, DownArrow, LeftArrow and RigthArrow to navigate. \n Use S and L to Save and Load game state.";
 
-        public const string InviteUserInputMessage = "Enter your move (L=left, R-right, U=up, D=down): ";
+        public const string InviteUserInputMessage = "Enter your move (L=left, R=right, U=up, D=down): ";
 
         public const string WrongInputMessage = "Invalid command!";
 
@@ -23,5 +23,11 @@
         public const string GameLoaded = "Game loaded.";
 
         public const string LoadError = "There are no saved state.";
+
+        public const string PlayAgainMessage = "Do you want to play again ?\nPlease choice Yes/No";
+
+        public const string GoodByeMessage = "GoodBye {0}!";
+
+        public const string PressBackMessage = "\nPress Backspace to go back";
     }
 }
