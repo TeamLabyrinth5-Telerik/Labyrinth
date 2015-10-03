@@ -44,6 +44,7 @@
     <Compile Include="ConsoleInterface.cs" />
     <Compile Include="ConsoleRenderer.cs" />
     <Compile Include="LabyrinthMain.cs" />
+    <Compile Include="LabyrinthStarter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

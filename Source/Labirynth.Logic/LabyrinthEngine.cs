@@ -8,25 +8,26 @@
     using Labyrinth.Models.Interfaces;
     using Labirynth.Logic;
     using Labirynth.Logic.Interfaces;
+    using Labirynth.Console.Interfaces;
 
     public class LabyrinthEngine : Engine, IEngine
     {
         private IRenderer renderer;
         private IUserInterface userInterface;
         private IPlayer player;
-        private Grid grid;
+        private IGrid grid;
         private GridMemory gridMemory;
         private Scoreboard scoreBoard;
         private bool isGameOver;
 
-        public LabyrinthEngine(IRenderer renderer, IUserInterface userInterface, IInitializer initializer)
+        public LabyrinthEngine(IRenderer renderer, IUserInterface userInterface, IInitializer initializer, IPlayer player, IGrid grid)
             :base(initializer)
         {
             this.renderer = renderer;
             this.userInterface = userInterface;
             this.scoreBoard = new Scoreboard();
-            this.player = new Player();
-            this.grid = new Grid(GlobalConstants.GridRowsCount, GlobalConstants.GridColsCount);
+            this.player = player;
+            this.grid = grid;
             this.gridMemory = new GridMemory();
         }
 

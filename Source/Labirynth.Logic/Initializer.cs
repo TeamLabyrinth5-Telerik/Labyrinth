@@ -5,15 +5,16 @@
     using Labyrinth.Logic.Interfaces;
     using Labyrinth.Models;
     using Labyrinth.Models.Interfaces;
+    using Labirynth.Console.Interfaces;
 
     public class Initializer : IInitializer
     {
-        public void InitializeGame(Grid grid, IPlayer player)
+        public void InitializeGame(IGrid grid, IPlayer player)
         {
             this.GenerateGrid(player, grid);
         }
 
-        private Grid GenerateGrid(IPlayer player, Grid grid)
+        private IGrid GenerateGrid(IPlayer player, IGrid grid)
         {
             DefaultRandomGenerator random = DefaultRandomGenerator.Instance();
             int percentageOfBlockedCells = random.Next(GlobalConstants.MinimumPercentageOfBlockedCells, GlobalConstants.MaximumPercentageOfBlockedCells);
@@ -40,7 +41,7 @@
             return grid;
         }
         
-        private void MakeAtLeastOneExitReachable(Grid generatedGrid, IPlayer player)
+        private void MakeAtLeastOneExitReachable(IGrid generatedGrid, IPlayer player)
         {
             DefaultRandomGenerator random = DefaultRandomGenerator.Instance();
             int[] dirX = { 0, 0, 1, -1 };
@@ -65,7 +66,7 @@
 
         }
 
-        private bool IsInsideGrid(Position position, Grid grid)
+        private bool IsInsideGrid(Position position, IGrid grid)
         {
             if (position.X >= 0 && position.X < GlobalConstants.GridRowsCount &&
                     position.Y >= 0 && position.Y < GlobalConstants.GridColsCount)

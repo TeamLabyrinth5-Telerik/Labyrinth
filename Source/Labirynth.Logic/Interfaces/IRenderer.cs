@@ -1,10 +1,11 @@
 ﻿namespace Labyrinth.Logic.Interfaces
 {
+    using Labirynth.Console.Interfaces;
     using Labyrinth.Models;
 
     public interface IRenderer
     {
-        void PrintLabirynth(Grid grid);
+        void PrintLabirynth(IGrid grid);
 
         void PrintScore(Scoreboard score);
 

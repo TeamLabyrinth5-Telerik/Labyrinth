@@ -1,11 +1,10 @@
 ﻿namespace Labyrinth.Models
 {
+    using Labirynth.Console.Interfaces;
     using Labyrinth.Common;
 
-    public class Grid
+    public class Grid : IGrid
     {
-        //private char[,] grid;
-
         public Grid(int rows = GlobalConstants.GridRowsCount, int cols = GlobalConstants.GridColsCount)
         {
             this.TotalRows = rows;
