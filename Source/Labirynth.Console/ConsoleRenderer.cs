@@ -51,7 +51,7 @@
 
         public void PrintMenu()
         {
-            this.PrintOnPosition(16, 0, GlobalConstants.logo, ConsoleColor.Green);
+            this.PrintOnPosition(16, 0, GlobalConstants.Logo, ConsoleColor.Green);
             
             var text = "Please select: ";
             this.PrintOnPosition(GlobalConstants.LogoStartPositionX, GlobalConstants.LogoStartPositionY, text, ConsoleColor.White);

@@ -1,14 +1,14 @@
 ﻿namespace Labyrinth.Logic
 {
     using System;
+    using Labirynth.Console.Interfaces;
+    using Labirynth.Logic;
+    using Labirynth.Logic.Interfaces;
     using Labyrinth.Common;
     using Labyrinth.Common.Enums;
     using Labyrinth.Logic.Interfaces;
     using Labyrinth.Models;
     using Labyrinth.Models.Interfaces;
-    using Labirynth.Logic;
-    using Labirynth.Logic.Interfaces;
-    using Labirynth.Console.Interfaces;
 
     public class LabyrinthEngine : Engine, IEngine
     {
@@ -21,7 +21,7 @@
         private bool isGameOver;
 
         public LabyrinthEngine(IRenderer renderer, IUserInterface userInterface, IInitializer initializer, IPlayer player, IGrid grid)
-            :base(initializer)
+            : base(initializer)
         {
             this.renderer = renderer;
             this.userInterface = userInterface;
@@ -49,22 +49,18 @@
             switch (command)
             {
                 case Commands.L:
-                    player.MoveCount++;
                     this.renderer.ClearConsole();
                     this.ProcessMoveCommand(0, -1);
                     break;
                 case Commands.R:
-                    player.MoveCount++;
                     this.renderer.ClearConsole();
                     this.ProcessMoveCommand(0, 1);
                     break;
                 case Commands.U:
-                    player.MoveCount++;
                     this.renderer.ClearConsole();
                     this.ProcessMoveCommand(-1, 0);
                     break;
                 case Commands.D:
-                    player.MoveCount++;
                     this.renderer.ClearConsole();
                     this.ProcessMoveCommand(1, 0);
                     break;
@@ -148,6 +144,8 @@
 
         private void ProcessMoveCommand(int dirX, int dirY)
         {
+            this.player.MoveCount++;
+
             if (this.IsMoveValid(new Position(this.player.Position.X + dirX, this.player.Position.Y + dirY)) == false)
             {
                 return;
@@ -194,7 +192,7 @@
                         this.renderer.ClearConsole();
                         this.renderer.PrintMessage(string.Format(GameMassages.GoodByeMessage, this.player.Name));
 
-                        this.userInterface.ExitGame();
+                        // this.userInterface.ExitGame();
                         this.GoBackToInitialMenu();
                         this.isGameOver = false;
                         break;
@@ -267,14 +265,14 @@
             return true;
         }
 
-        public Memento SaveMemento()
+        private Memento SaveMemento()
         {
             char[,] currentField = (char[,])this.grid.Field.Clone();
             Position currentPlayerPosition = (Position)this.player.Position.Clone();
             return new Memento(currentField, currentPlayerPosition);
         }
 
-        public void RestoreMemento(Memento memento)
+        private void RestoreMemento(Memento memento)
         {
             this.grid.Field = (char[,])memento.Field.Clone();
             this.player.Position = memento.Position;

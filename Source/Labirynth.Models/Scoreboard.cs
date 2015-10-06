@@ -8,7 +8,6 @@
     public class Scoreboard
     {
         private List<IPlayer> players = new List<IPlayer>();
-    
 
         public List<IPlayer> Players
         {
@@ -21,7 +20,7 @@
         public void AddPlayer(IPlayer player)
         {
             this.players.Add(player);
-             this.players = this.players.OrderBy(x => x.MoveCount).ToList();
+            this.players = this.players.OrderBy(x => x.MoveCount).ToList();
             this.DeleteAllExceptTopPlayers();
         }
 

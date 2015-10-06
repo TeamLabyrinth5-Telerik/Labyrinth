@@ -29,7 +29,7 @@
         public const string HighScoreCommand = "D3";
         public const string Exit = "D4";
 
-        public const string logo = @" _           _                _       _   _     
+        public const string Logo = @" _           _                _       _   _     
                 | |         | |              (_)     | | | |    
                 | |     __ _| |__  _   _ _ __ _ _ __ | |_| |__  
                 | |    / _` | '_ \| | | | '__| | '_ \| __| '_ \ 

@@ -7,8 +7,8 @@
     <ProjectGuid>{E19B3CD3-2A84-43F3-B192-977A5EE86204}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Labirynth.Logic</RootNamespace>
-    <AssemblyName>Labirynth.Logic</AssemblyName>
+    <RootNamespace>Labyrinth.Logic</RootNamespace>
+    <AssemblyName>Labyrinth.Logic</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
