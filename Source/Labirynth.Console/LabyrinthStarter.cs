@@ -1,12 +1,8 @@
 ﻿namespace Labirynth.Console
 {
-    using Labirynth.Console.Interfaces;
-    using Labyrinth.Common;
-    using Labyrinth.Console;
-    using Labyrinth.Logic;
-    using Labyrinth.Logic.Interfaces;
-    using Labyrinth.Models;
-    using Labyrinth.Models.Interfaces;
+    using Labirynth.Logic.Interfaces;
+    using Ninject;
+    using System.Reflection;
 
     public class LabyrinthStarter
     {
@@ -36,14 +32,11 @@
 
         public void StartGame()
         {
-            IUserInterface userInterface = new ConsoleInterface();
-            IRenderer renderer = new ConsoleRenderer();
-            IInitializer initializer = new Initializer();
-            IPlayer player = new Player();
-            IGrid grid = new Grid();
+            IKernel kernel = new StandardKernel();
+            kernel.Load(Assembly.GetExecutingAssembly());
 
-            LabyrinthEngine engine = new LabyrinthEngine(renderer, userInterface, initializer, player, grid);
-            engine.Run();
+            var engine = kernel.Get<IEngine>();
+             engine.Run();
         }
     }
 }
