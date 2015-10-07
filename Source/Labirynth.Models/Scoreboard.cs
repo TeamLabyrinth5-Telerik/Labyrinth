@@ -7,9 +7,9 @@
 
     public class Scoreboard
     {
-        private List<IPlayer> players = new List<IPlayer>();
+        private IList<IPlayer> players = new List<IPlayer>();
 
-        public List<IPlayer> Players
+        public IList<IPlayer> Players
         {
             get
             {

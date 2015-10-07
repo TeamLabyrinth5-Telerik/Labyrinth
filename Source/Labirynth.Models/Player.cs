@@ -56,7 +56,7 @@
             set
             {
                 if (value < 0)
-                {                               // TODO: Eventually extract message in constant
+                {                               
                     throw new ArgumentException("Move count cannot be negative");
                 }
 

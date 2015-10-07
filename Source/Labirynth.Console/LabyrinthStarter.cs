@@ -40,7 +40,7 @@
             IRenderer renderer = new ConsoleRenderer();
             IInitializer initializer = new Initializer();
             IPlayer player = new Player();
-            IGrid grid = new Grid(GlobalConstants.GridRowsCount, GlobalConstants.GridColsCount);
+            IGrid grid = new Grid();
 
             LabyrinthEngine engine = new LabyrinthEngine(renderer, userInterface, initializer, player, grid);
             engine.Run();

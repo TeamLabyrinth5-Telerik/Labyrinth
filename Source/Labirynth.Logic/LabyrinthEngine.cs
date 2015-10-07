@@ -38,13 +38,12 @@
                 this.renderer.PrintMenu();
                 var command = this.userInterface.GetCommandFromInput();
                 this.renderer.ClearConsole();
-
-                this.ExecuteCommand(command, this.player);
+                this.ExecuteCommand(command);
                 this.renderer.ClearConsole();
             }
         }
 
-        private void ExecuteCommand(Commands command, IPlayer player)
+        private void ExecuteCommand(Commands command)
         {
             switch (command)
             {
@@ -192,7 +191,6 @@
                         this.renderer.ClearConsole();
                         this.renderer.PrintMessage(string.Format(GameMassages.GoodByeMessage, this.player.Name));
 
-                        // this.userInterface.ExitGame();
                         this.GoBackToInitialMenu();
                         this.isGameOver = false;
                         break;
@@ -208,7 +206,7 @@
 
                 this.renderer.PrintMessage(GameMassages.InviteUserInputMessage);
                 Commands userCommand = this.userInterface.GetCommandFromInput();
-                this.ExecuteCommand(userCommand, this.player);
+                this.ExecuteCommand(userCommand);
 
                 this.isGameOver = this.IsGameOver(this.player.Position.X, this.player.Position.Y);
             }

@@ -50,10 +50,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="TestGrid.cs" />
     <Compile Include="TestPlayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Labirynth.Common\Labyrinth.Common.csproj">
+      <Project>{b30df359-9672-458f-8ad5-6fe22ee5bf15}</Project>
+      <Name>Labyrinth.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Labirynth.Models\Labyrinth.Models.csproj">
       <Project>{1a2340bd-480a-4887-b8fe-14ab3227331c}</Project>
       <Name>Labyrinth.Models</Name>
