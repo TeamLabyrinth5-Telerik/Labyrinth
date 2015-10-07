@@ -4,6 +4,9 @@
     using Labyrinth.Common;
     using Labyrinth.Models.Interfaces;
 
+    /// <summary>
+    /// Main Player class that save its name and count of moves
+    /// </summary>
     public class Player : IPlayer
     {
         private const int InitialPlayerMoveCount = 0;

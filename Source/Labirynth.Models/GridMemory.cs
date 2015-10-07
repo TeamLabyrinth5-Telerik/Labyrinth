@@ -1,5 +1,8 @@
 ﻿namespace Labyrinth.Models
 {
+    /// <summary>
+    /// Class GridMemory represent CareTaker for Memento design pattern
+    /// </summary>
     public class GridMemory
     {
         private Memento memento;

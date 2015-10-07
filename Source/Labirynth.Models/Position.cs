@@ -2,6 +2,9 @@
 {
     using System;
 
+    /// <summary>
+    /// Class position hold player position
+    /// </summary>
     public struct Position : ICloneable
     {
         private int x;

@@ -7,12 +7,19 @@
 
     public class ConsoleInterface : IUserInterface
     {
+        /// <summary>
+        /// Gets the input text from the user.
+        /// </summary>
+        /// <returns>The input as <see cref="System.String"/></returns>
         public string GetUserInput()
         {
             var input = Console.ReadLine();
             return input;
         }
 
+        /// <summary>
+        /// Get user input from keyboard
+        /// </summary>
         public string GetButtonInput()
         {
             var input = Console.ReadKey();
@@ -20,6 +27,10 @@
             return input.Key.ToString();
         }
 
+        /// <summary>
+        /// Process input from the user.
+        /// </summary>
+        /// <returns>A <see cref="GameFifteen.Common.Enums.Command"/> to process.</returns>
         public Commands GetCommandFromInput()
         {
               string input = this.GetButtonInput().ToUpper();
@@ -55,6 +66,9 @@
             }
         }
 
+        /// <summary>
+        /// Method for ending game
+        /// </summary>
         public void ExitGame()
         {
             Environment.Exit(0);

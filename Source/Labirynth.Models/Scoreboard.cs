@@ -5,6 +5,9 @@
     using System.Linq;
     using Labyrinth.Models.Interfaces;
 
+    /// <summary>
+    /// Class for saving and listing top scorers.
+    /// </summary>
     public class Scoreboard
     {
         private IList<IPlayer> players = new List<IPlayer>();
@@ -17,6 +20,10 @@
             }
         }
 
+        /// <summary>
+        /// Add player to scoreboard
+        /// </summary>
+        /// <param name="player"></param>
         public void AddPlayer(IPlayer player)
         {
             this.players.Add(player);
@@ -24,6 +31,9 @@
             this.DeleteAllExceptTopPlayers();
         }
 
+        /// <summary>
+        /// Get top five players
+        /// </summary>
         private void DeleteAllExceptTopPlayers()
         {
             for (int index = 0; index < this.players.Count(); index++)
