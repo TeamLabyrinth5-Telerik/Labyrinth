@@ -8,6 +8,10 @@
 
     public class ConsoleRenderer : IRenderer
     {
+        /// <summary>
+        /// Prints the labyrinth to the console
+        /// </summary>
+        /// <param name="grid">the playfield</param>
         public void PrintLabirynth(IGrid grid)
         {
             Console.ForegroundColor = ConsoleColor.Green;
@@ -27,7 +31,11 @@
 
             Console.WriteLine("  " + new string('─', GlobalConstants.GridRowsCount * 2 + 1));
         }
-
+        
+        /// <summary>
+        /// Prints high score on the console
+        /// </summary>
+        /// <param name="scoreBoard">IList where is saved scores</param>
         public void PrintScore(Scoreboard scoreBoard)
         {
             int counter = 1;
@@ -44,19 +52,26 @@
             }
         }
 
+        /// <summary>
+        /// Prints a message to the console
+        /// </summary>
+        /// <param name="message">Printed value</param>
         public void PrintMessage(string message)
         {
             Console.WriteLine(message);
         }
 
+        /// <summary>
+        /// Prints Menu to the console
+        /// </summary>
         public void PrintMenu()
         {
             this.PrintOnPosition(16, 0, GlobalConstants.Logo, ConsoleColor.Green);
-            
+
             var text = "Please select: ";
             this.PrintOnPosition(GlobalConstants.LogoStartPositionX, GlobalConstants.LogoStartPositionY, text, ConsoleColor.White);
 
-            var options = new string[] 
+            var options = new string[]
             {
                 "New Game",
                 "How to play",
@@ -73,6 +88,13 @@
             this.PrintOnPosition(GlobalConstants.LogoStartPositionX, GlobalConstants.LogoStartPositionY + options.Length + 1, string.Empty);
         }
 
+        /// <summary>
+        /// Prints to the console on choosen position
+        /// </summary>
+        /// <param name="x">X coord of the console</param>
+        /// <param name="y">Y coord of the console</param>
+        /// <param name="text">Value to be printed</param>
+        /// <param name="color">Color of the printed text</param>
         public void PrintOnPosition(int x, int y, string text, ConsoleColor color = ConsoleColor.White)
         {
             Console.SetCursorPosition(x, y);
@@ -80,6 +102,9 @@
             Console.Write(text);
         }
 
+        /// <summary>
+        /// Clears the console
+        /// </summary>
         public void ClearConsole()
         {
             Console.Clear();

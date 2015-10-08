@@ -13,6 +13,7 @@
         {
         }
 
+
         public static LabyrinthStarter Instance
         {
             get 
@@ -30,6 +31,9 @@
             }
         }
 
+        /// <summary>
+        /// Start the game
+        /// </summary>
         public void StartGame()
         {
             IKernel kernel = new StandardKernel();
