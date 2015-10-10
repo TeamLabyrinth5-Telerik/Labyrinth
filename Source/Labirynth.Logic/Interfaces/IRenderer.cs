@@ -32,6 +32,11 @@
         void PrintMenu();
 
         /// <summary>
+        /// Renderes game levels
+        /// </summary>
+        void PrintLevels();
+
+        /// <summary>
         /// Clears the console
         /// </summary>
         void ClearConsole();

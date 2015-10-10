@@ -19,9 +19,9 @@
             DefaultRandomGenerator random = DefaultRandomGenerator.Instance();
             int percentageOfBlockedCells = random.Next(GlobalConstants.MinimumPercentageOfBlockedCells, GlobalConstants.MaximumPercentageOfBlockedCells);
 
-            for (int row = 0; row < GlobalConstants.GridRowsCount; row++)
+            for (int row = 0; row < grid.TotalRows; row++)
             {
-                for (int col = 0; col < GlobalConstants.GridColsCount; col++)
+                for (int col = 0; col < grid.TotalCols; col++)
                 {
                     int num = random.Next(0, 100);
                     if (num < percentageOfBlockedCells)
@@ -35,7 +35,7 @@
                 }
             }
 
-            grid.SetCell(GlobalConstants.StartPlayerPositionX, GlobalConstants.StartPlayerPositionY, GlobalConstants.PlayerSignSymbol);
+            grid.SetCell(grid.TotalRows / 2, grid.TotalCols / 2, GlobalConstants.PlayerSignSymbol);
 
             this.MakeAtLeastOneExitReachable(grid, player);
             return grid;
@@ -48,7 +48,7 @@
             int[] dirY = { 1, -1, 0, 0 };
             int numberOfDirections = 4;
 
-            while (this.IsGameOver(player) == false)
+            while (this.IsGameOver(player, generatedGrid) == false)
             {
                 int randomIndex = random.Next(0, numberOfDirections);
 
@@ -61,14 +61,14 @@
                 }
             }
 
-            player.Position = new Position(GlobalConstants.StartPlayerPositionX, GlobalConstants.StartPlayerPositionY);
-            generatedGrid.SetCell(GlobalConstants.StartPlayerPositionX, GlobalConstants.StartPlayerPositionY, GlobalConstants.PlayerSignSymbol);
+            player.Position = new Position(generatedGrid.TotalRows / 2, generatedGrid.TotalCols / 2);
+            generatedGrid.SetCell(generatedGrid.TotalRows / 2, generatedGrid.TotalCols / 2, GlobalConstants.PlayerSignSymbol);
         }
 
         private bool IsInsideGrid(Position position, IGrid grid)
         {
-            if (position.X >= 0 && position.X < GlobalConstants.GridRowsCount &&
-                    position.Y >= 0 && position.Y < GlobalConstants.GridColsCount)
+            if (position.X >= 0 && position.X < grid.TotalRows &&
+                    position.Y >= 0 && position.Y < grid.TotalCols)
             {
                 return true;
             }
@@ -76,10 +76,10 @@
             return false;
         }
 
-        private bool IsGameOver(IPlayer player)
+        private bool IsGameOver(IPlayer player, IGrid grid)
         {
-            if ((player.Position.X > 0 && player.Position.X < GlobalConstants.GridRowsCount - 1) &&
-                (player.Position.Y > 0 && player.Position.Y < GlobalConstants.GridColsCount - 1))
+            if ((player.Position.X > 0 && player.Position.X < grid.TotalRows - 1) &&
+                (player.Position.Y > 0 && player.Position.Y < grid.TotalCols - 1))
             {
                 return false;
             }

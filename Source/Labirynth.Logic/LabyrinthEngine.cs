@@ -48,6 +48,18 @@
         {
             switch (command)
             {
+                case Commands.LevelA:
+                    this.renderer.ClearConsole();
+                    this.ProcessStartGameCommand(7);
+                    break;
+                case Commands.LevelB:
+                    this.renderer.ClearConsole();
+                    this.ProcessStartGameCommand(10);
+                    break;
+                case Commands.LevelC:
+                    this.renderer.ClearConsole();
+                    this.ProcessStartGameCommand(15);
+                    break;
                 case Commands.L:
                     this.renderer.ClearConsole();
                     this.ProcessMoveCommand(0, -1);
@@ -146,7 +158,7 @@
         {
             this.player.MoveCount++;
 
-            if (this.IsMoveValid(new Position(this.player.Position.X + dirX, this.player.Position.Y + dirY)) == false)
+            if (this.IsMoveValid(new Position(this.player.Position.X + dirX, this.player.Position.Y + dirY), this.grid) == false)
             {
                 return;
             }
@@ -171,8 +183,10 @@
             this.userInterface.ExitGame();
         }
 
-        private void ProcessStartCommand()
+        private void ProcessStartGameCommand(int size)
         {
+            this.grid.TotalRows = size;
+            this.grid.TotalCols = size;
             this.Initializer.InitializeGame(this.grid, this.player);
 
             while (true)
@@ -199,7 +213,11 @@
                     else if (answer == "YES")
                     {
                         this.renderer.ClearConsole();
-                        this.ProcessRestartGameCommand();
+                        this.isGameOver = false;
+                        this.ProcessStartCommand();
+                        var command = this.userInterface.GetCommandFromInput();
+                        this.renderer.ClearConsole();
+                        this.ExecuteCommand(command);
                     }
                 }
 
@@ -209,8 +227,16 @@
                 Commands userCommand = this.userInterface.GetCommandFromInput();
                 this.ExecuteCommand(userCommand);
 
-                this.isGameOver = this.IsGameOver(this.player.Position.X, this.player.Position.Y);
+                this.isGameOver = this.IsGameOver(this.player.Position.X, this.player.Position.Y, this.grid);
             }
+        }
+
+        private void ProcessStartCommand()
+        {
+            this.renderer.PrintLevels();
+            var command = this.userInterface.GetCommandFromInput();
+            this.renderer.ClearConsole();
+            this.ExecuteCommand(command);
         }
 
         private void GoBackToInitialMenu()
@@ -242,10 +268,10 @@
             this.scoreBoard.AddPlayer(this.player);
         }
 
-        private bool IsMoveValid(Position position)
+        private bool IsMoveValid(Position position, IGrid grid)
         {
-            if (position.X < 0 || position.X > GlobalConstants.GridRowsCount - 1 ||
-                position.Y < 0 || position.Y > GlobalConstants.GridColsCount - 1)
+            if (position.X < 0 || position.X > grid.TotalRows - 1 ||
+                position.Y < 0 || position.Y > grid.TotalCols - 1)
             {
                 return false;
             }
@@ -253,10 +279,10 @@
             return true;
         }
 
-        private bool IsGameOver(int playerPositionX, int playerPositionY)
+        private bool IsGameOver(int playerPositionX, int playerPositionY, IGrid grid)
         {
-            if ((playerPositionX > 0 && playerPositionX < GlobalConstants.GridRowsCount - 1) &&
-                (playerPositionY > 0 && playerPositionY < GlobalConstants.GridColsCount - 1))
+            if ((playerPositionX > 0 && playerPositionX < grid.TotalRows - 1) &&
+                (playerPositionY > 0 && playerPositionY < grid.TotalCols - 1))
             {
                 return false;
             }

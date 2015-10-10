@@ -15,21 +15,21 @@
         public void PrintLabirynth(IGrid grid)
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("  " + new string('─', (GlobalConstants.GridRowsCount * 2) + 1));
+            Console.WriteLine(" " + new string('\u2593', (grid.TotalRows * 2) + 3));
 
-            for (int row = 0; row < GlobalConstants.GridRowsCount; row++)
+            for (int row = 0; row < grid.TotalRows; row++)
             {
-                Console.Write("{0,2}", "|");
-                for (int col = 0; col < GlobalConstants.GridColsCount; col++)
+                Console.Write("{0,2}", "\u2593");
+                for (int col = 0; col < grid.TotalCols; col++)
                 {
                     Console.Write("{0,2}", grid.GetCell(row, col));
                 }
 
-                Console.Write("{0,2}", "|");
+                Console.Write("{0,2}", "\u2593");
                 Console.WriteLine();
             }
 
-            Console.WriteLine("  " + new string('─', (GlobalConstants.GridRowsCount * 2) + 1));
+            Console.WriteLine(" " + new string('\u2593', (grid.TotalCols * 2) + 3));
         }
 
         /// <summary>
@@ -108,6 +108,32 @@
         public void ClearConsole()
         {
             Console.Clear();
+        }
+
+        /// <summary>
+        /// Prints levels to console
+        /// </summary>
+        public void PrintLevels()
+        {
+            this.PrintOnPosition(16, 0, GlobalConstants.Logo, ConsoleColor.Green);
+
+            var text = "Please select level: ";
+            this.PrintOnPosition(GlobalConstants.LogoStartPositionX, GlobalConstants.LogoStartPositionY, text, ConsoleColor.White);
+
+            var options = new string[]
+           {
+                "7 x 7",
+                "10 x 10",
+                "15 x 15",
+           };
+
+            for (int i = 0; i < options.Length; i++)
+            {
+                this.PrintOnPosition(GlobalConstants.LogoStartPositionX, GlobalConstants.LogoStartPositionY + i + 1, (char)(65 + i) + ": ", ConsoleColor.Yellow);
+                this.PrintOnPosition(GlobalConstants.LogoStartPositionX + 3, GlobalConstants.LogoStartPositionY + i + 1, options[i], ConsoleColor.Green);
+            }
+
+            this.PrintOnPosition(GlobalConstants.LogoStartPositionX, GlobalConstants.LogoStartPositionY + options.Length + 1, string.Empty);
         }
     }
 }

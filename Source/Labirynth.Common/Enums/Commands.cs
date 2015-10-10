@@ -13,6 +13,9 @@
         Save,
         Load,
         Start,
-        HowTo
+        HowTo,
+        LevelA,
+        LevelB,
+        LevelC
     }
 }

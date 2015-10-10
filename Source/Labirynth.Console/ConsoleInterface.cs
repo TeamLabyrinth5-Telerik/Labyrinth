@@ -53,6 +53,12 @@
                     return Commands.L;
                 case GlobalConstants.RigthKeyCommand:
                     return Commands.R;
+                case GlobalConstants.LevelA:
+                    return Commands.LevelA;
+                case GlobalConstants.LevelB:
+                    return Commands.LevelB;
+                case GlobalConstants.LevelC:
+                    return Commands.LevelC;
                 case GlobalConstants.SaveCommand:
                     return Commands.Save;
                 case GlobalConstants.LoadCommand:

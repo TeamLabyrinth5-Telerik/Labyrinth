@@ -8,9 +8,9 @@
     {
         char[,] Field { get; set; }
 
-        int TotalRows { get; }
+        int TotalRows { get; set; }
 
-        int TotalCols { get; }
+        int TotalCols { get; set; }
 
         char GetCell(int row, int col);
 

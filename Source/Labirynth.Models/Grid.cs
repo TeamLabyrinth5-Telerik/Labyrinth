@@ -9,18 +9,18 @@
     /// </summary>
     public class Grid : IGrid
     {
-        public Grid(int rows = GlobalConstants.GridRowsCount, int cols = GlobalConstants.GridColsCount)
+        public Grid(int rows = GlobalConstants.MaximalGridRowsCount, int cols = GlobalConstants.MaximalGridColsCount)
         {
             this.TotalRows = rows;
             this.TotalCols = cols;
-            this.Field = new char[rows, cols];
+            this.Field = new char[this.TotalRows, this.TotalCols];
         }
 
         public char[,] Field { get; set; }
 
-        public int TotalRows { get; private set; }
+        public int TotalRows { get; set; }
 
-        public int TotalCols { get; private set; }
+        public int TotalCols { get; set; }
 
         /// <summary>
         /// Get value from certain cell from playfield
