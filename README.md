@@ -213,9 +213,20 @@ Documentation for Team Labyrinth 5 project
 	- Introduced class `Scoreboard` to `LabyrinthModels`.
 		- Introduced method `AddPlayer()`.
 		- Introduced method `DeleteAllExceptTopPlayers()`.
+		- 
 8. Introduced project `LabyrinthTests`:
-	- Introduced unit test class `TestGrid` and tested methods:
-		- `TestConstructorIfReturnValidRowLenth()`.
-		- `TestConstructorIfReturnValidColLenth()`.
-		- `TestSetCellMethodIfSetCurrectlyValue()`.
-		- `TestGetCellMethodIfGetCurrectlyValue()`.
+	- Introduced unit test class `TestGrid` with test methods:
+		- `TestConstructorIfReturnValidRowLenth()` tests `TotalRows()`.
+		- `TestConstructorIfReturnValidColLenth()` tests `TotalCols()`.
+		- `TestSetCellMethodIfSetCurrectlyValue()` tests `SetCell()`.
+		- `TestGetCellMethodIfGetCurrectlyValue()` tests `GetCell()`.
+	- Introduced unit test class `TestPlayer` with test methods:
+		- `TestPlayerConstructorIfReturnsValidNameState()` tests `Player()`.
+		- `TestPlayerConstructorIfReturnValidMovesState()` tests `MoveCount()`.
+		- `TestPlayerConstructorIfInputIsProvidedReturnsValidNameState()` tests `Player()`.
+		- `TestPlayerConstructorIfReturnValidInitialPositionX()` tests `Position()`.
+		- `TestPlayerConstructorIfReturnValidInitialPositionY()` tests `Position()`.
+	- Introduced unit test class `TestScoreboard` with test methods:
+		- `ShouldReturnZeroWhenHaveEmptyList()` tests the Scoreboard count.
+		- `ShouldAddPlayerToList()` tests adding players to the Scoreboard.
+		- `ShouldAddPlayerWithNameToList()` tests adding players with provided name to the Scoreboard.
