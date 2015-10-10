@@ -213,3 +213,20 @@ Documentation for Team Labyrinth 5 project
 	- Introduced class `Scoreboard` to `LabyrinthModels`.
 		- Introduced method `AddPlayer()`.
 		- Introduced method `DeleteAllExceptTopPlayers()`.
+		
+8. Introduced project `LabyrinthTests`:
+	- Introduced unit test class `TestGrid` with test methods:
+		- `TestConstructorIfReturnValidRowLenth()` tests `TotalRows()` row count.
+		- `TestConstructorIfReturnValidColLenth()` tests `TotalCols()` collumns count.
+		- `TestSetCellMethodIfSetCurrectlyValue()` tests `SetCell()` method.
+		- `TestGetCellMethodIfGetCurrectlyValue()` tests `GetCell()` method.
+	- Introduced unit test class `TestPlayer` with test methods:
+		- `TestPlayerConstructorIfReturnsValidNameState()` tests `Player()` default given name.
+		- `TestPlayerConstructorIfReturnValidMovesState()` tests `MoveCount()` method.
+		- `TestPlayerConstructorIfInputIsProvidedReturnsValidNameState()` tests `Player()` provided name.
+		- `TestPlayerConstructorIfReturnValidInitialPositionX()` tests `Position()` X player position.
+		- `TestPlayerConstructorIfReturnValidInitialPositionY()` tests `Position()` Y player position.
+	- Introduced unit test class `TestScoreboard` with test methods:
+		- `ShouldReturnZeroWhenHaveEmptyList()` tests the Scoreboard count.
+		- `ShouldAddPlayerToList()` tests adding players to the Scoreboard.
+		- `ShouldAddPlayerWithNameToList()` tests adding players with provided name to the Scoreboard.
