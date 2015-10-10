@@ -213,3 +213,9 @@ Documentation for Team Labyrinth 5 project
 	- Introduced class `Scoreboard` to `LabyrinthModels`.
 		- Introduced method `AddPlayer()`.
 		- Introduced method `DeleteAllExceptTopPlayers()`.
+8. Introduced project `LabyrinthTests`:
+	- Introduced unit test class `TestGrid` and tested methods:
+		- `TestConstructorIfReturnValidRowLenth()`.
+		- `TestConstructorIfReturnValidColLenth()`.
+		- `TestSetCellMethodIfSetCurrectlyValue()`.
+		- `TestGetCellMethodIfGetCurrectlyValue()`.
