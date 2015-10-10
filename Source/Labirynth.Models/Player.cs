@@ -14,6 +14,9 @@
         private string name;
         private int moveCount;
 
+        /// <summary>
+        /// Setting player name to 'Guest'
+        /// </summary>
         public Player()
         {
             this.Name = "Guest";
@@ -21,12 +24,21 @@
             this.Position = new Position(GlobalConstants.StartPlayerPositionX, GlobalConstants.StartPlayerPositionY);
         }
 
+        /// <summary>
+        /// Setting player name to given string
+        /// </summary>
+        /// <param name="name">The value to be set</param>
         public Player(string name)
             : this()
         {
             this.Name = name;
         }
 
+        /// <summary>
+        /// Setting player name and position
+        /// </summary>
+        /// <param name="name">The value to be set</param>
+        /// <param name="position">The value to be set</param>
         public Player(string name, Position position)
             : this(name)
         {

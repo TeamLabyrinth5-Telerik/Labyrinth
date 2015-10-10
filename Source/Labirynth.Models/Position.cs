@@ -43,6 +43,10 @@
             }
         }
 
+        /// <summary>
+        /// Clones the current position
+        /// </summary>
+        /// <returns>Cloned object with same coordinates</returns>
         public object Clone()
         {
             return new Position(this.X, this.Y);

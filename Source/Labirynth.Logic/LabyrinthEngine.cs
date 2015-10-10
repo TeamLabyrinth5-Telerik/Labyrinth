@@ -29,6 +29,9 @@
             this.gridMemory = new GridMemory();
         }
 
+        /// <summary>
+        /// Start the game
+        /// </summary>
         public override void Run()
         {
             while (true)
