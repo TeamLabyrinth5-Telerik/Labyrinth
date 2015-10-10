@@ -1,13 +1,8 @@
 ﻿namespace Labyrinth.Tests
 {
-    using System;
-    using System.Text;
-    using System.Collections.Generic;
+    using System.Linq;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Models;
-    using Telerik.JustMock;
-    using Models.Interfaces;
-    using System.Linq;
 
     [TestClass]
     public class TestScoreboard
@@ -18,8 +13,8 @@
         [TestMethod]
         public void ShouldReturnZeroWhenHaveEmptyList()
         {
-            scoreboard = new Scoreboard();
-            var actual = scoreboard.Players.Count;
+            this.scoreboard = new Scoreboard();
+            var actual = this.scoreboard.Players.Count;
             var expected = 0;
 
             Assert.AreEqual(expected, actual);
@@ -28,11 +23,11 @@
         [TestMethod]
         public void ShouldAddPlayerToList()
         {
-            scoreboard = new Scoreboard();
-            player = new Player();
-            scoreboard.AddPlayer(player);
+            this.scoreboard = new Scoreboard();
+            this.player = new Player();
+            this.scoreboard.AddPlayer(this.player);
 
-            var actual = scoreboard.Players.Count;
+            var actual = this.scoreboard.Players.Count;
             var expected = 1;
 
             Assert.AreEqual(expected, actual);
@@ -41,12 +36,12 @@
         [TestMethod]
         public void ShouldAddPlayerWithNameToList()
         {
-            scoreboard = new Scoreboard();
-            player = new Player("Stamat");
-            scoreboard.AddPlayer(player);
+            this.scoreboard = new Scoreboard();
+            this.player = new Player("Stamat");
+            this.scoreboard.AddPlayer(this.player);
 
-            var expected = player.Name;
-            var actual = scoreboard.Players.FirstOrDefault().Name;
+            var expected = this.player.Name;
+            var actual = this.scoreboard.Players.FirstOrDefault().Name;
 
             Assert.AreEqual(expected, actual);
         }

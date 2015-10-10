@@ -1,11 +1,9 @@
 ﻿namespace Labyrinth.Logic
 {
     using System;
-    using Labirynth.Console.Interfaces;
-    using Labirynth.Logic;
-    using Labirynth.Logic.Interfaces;
     using Labyrinth.Common;
     using Labyrinth.Common.Enums;
+    using Labyrinth.Console.Interfaces;
     using Labyrinth.Logic.Interfaces;
     using Labyrinth.Models;
     using Labyrinth.Models.Interfaces;
@@ -126,7 +124,7 @@
             this.isGameOver = false;
             this.player = new Player();
             this.grid = new Grid();
-            this.initializer.InitializeGame(this.grid, this.player);
+            this.Initializer.InitializeGame(this.grid, this.player);
         }
 
         private void ProcessPrintScoreCommand()
@@ -172,7 +170,7 @@
 
         private void ProcessStartCommand()
         {
-            this.initializer.InitializeGame(this.grid, this.player);
+            this.Initializer.InitializeGame(this.grid, this.player);
 
             while (true)
             {

@@ -1,6 +1,6 @@
 ﻿namespace Labyrinth.Logic.Interfaces
 {
-    using Labirynth.Console.Interfaces;
+    using Labyrinth.Console.Interfaces;
     using Labyrinth.Models;
 
     public interface IRenderer

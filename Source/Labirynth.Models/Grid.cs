@@ -1,7 +1,7 @@
 ﻿namespace Labyrinth.Models
 {
-    using Labirynth.Console.Interfaces;
     using Labyrinth.Common;
+    using Labyrinth.Console.Interfaces;
 
     /// <summary>
     /// Memento design pattern

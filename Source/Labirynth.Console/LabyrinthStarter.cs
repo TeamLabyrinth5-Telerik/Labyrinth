@@ -1,8 +1,8 @@
-﻿namespace Labirynth.Console
+﻿namespace Labyrinth.Console
 {
-    using Labirynth.Logic.Interfaces;
-    using Ninject;
     using System.Reflection;
+    using Labyrinth.Logic.Interfaces;
+    using Ninject;
 
     public class LabyrinthStarter
     {
@@ -13,17 +13,18 @@
         {
         }
 
-
         public static LabyrinthStarter Instance
         {
-            get 
+            get
             {
-                if (instance == null) 
+                if (instance == null)
                 {
-                    lock (syncRoot) 
+                    lock (syncRoot)
                     {
                         if (instance == null)
+                        {
                             instance = new LabyrinthStarter();
+                        }
                     }
                 }
 
@@ -40,7 +41,7 @@
             kernel.Load(Assembly.GetExecutingAssembly());
 
             var engine = kernel.Get<IEngine>();
-             engine.Run();
+            engine.Run();
         }
     }
 }

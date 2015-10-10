@@ -1,8 +1,9 @@
-﻿using Labirynth.Console;
-namespace Labyrinth.Console
+﻿namespace Labyrinth.Console
 {
+    using Labyrinth.Console;
+
     public class LabyrinthMain
-    {   
+    {
         /// <summary>
         /// Start point of the application
         /// </summary>

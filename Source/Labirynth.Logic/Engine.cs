@@ -1,15 +1,15 @@
-﻿namespace Labirynth.Logic
+﻿namespace Labyrinth.Logic
 {
-    using Labirynth.Logic.Interfaces;
+    using Labyrinth.Logic.Interfaces;
     using Labyrinth.Logic.Interfaces;
 
     public abstract class Engine : IEngine
     {
-        protected readonly IInitializer initializer;
+        protected readonly IInitializer Initializer;
 
         protected Engine(IInitializer initializer)
         {
-            this.initializer = initializer;
+            this.Initializer = initializer;
         }
 
         public abstract void Run();

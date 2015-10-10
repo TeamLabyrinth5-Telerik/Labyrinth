@@ -45,7 +45,7 @@
 
         public object Clone()
         {
-            return new Position (this.X, this.Y);
+            return new Position(this.X, this.Y);
         }
     }
 }

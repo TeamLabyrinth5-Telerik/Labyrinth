@@ -1,4 +1,4 @@
-﻿namespace Labirynth.Logic.Interfaces
+﻿namespace Labyrinth.Logic.Interfaces
 {
     public interface IEngine
     {

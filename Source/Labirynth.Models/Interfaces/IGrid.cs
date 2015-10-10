@@ -1,8 +1,8 @@
-﻿namespace Labirynth.Console.Interfaces
+﻿namespace Labyrinth.Console.Interfaces
 {
+    using System.Collections.Generic;
     using Labyrinth.Models;
     using Labyrinth.Models.Interfaces;
-    using System.Collections.Generic;
 
     public interface IGrid
     {

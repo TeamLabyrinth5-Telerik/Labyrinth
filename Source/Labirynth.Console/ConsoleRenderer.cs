@@ -1,8 +1,8 @@
 ﻿namespace Labyrinth.Console
 {
     using System;
-    using Labirynth.Console.Interfaces;
     using Labyrinth.Common;
+    using Labyrinth.Console.Interfaces;
     using Labyrinth.Logic.Interfaces;
     using Labyrinth.Models;
 
@@ -15,7 +15,7 @@
         public void PrintLabirynth(IGrid grid)
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("  " + new string('─', GlobalConstants.GridRowsCount * 2 + 1));
+            Console.WriteLine("  " + new string('─', (GlobalConstants.GridRowsCount * 2) + 1));
 
             for (int row = 0; row < GlobalConstants.GridRowsCount; row++)
             {
@@ -29,9 +29,9 @@
                 Console.WriteLine();
             }
 
-            Console.WriteLine("  " + new string('─', GlobalConstants.GridRowsCount * 2 + 1));
+            Console.WriteLine("  " + new string('─', (GlobalConstants.GridRowsCount * 2) + 1));
         }
-        
+
         /// <summary>
         /// Prints high score on the console
         /// </summary>

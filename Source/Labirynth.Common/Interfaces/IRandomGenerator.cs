@@ -31,6 +31,5 @@
         /// Random integer number
         /// </returns>
         int Next(int minValue, int maxValue);
-
     }
 }

@@ -1,14 +1,13 @@
-﻿namespace Labirynth.Console.Config
+﻿namespace Labyrinth.Console.Config
 {
-    using Ninject.Modules;
-    using Labyrinth.Logic.Interfaces;
-    using Labirynth.Console.Interfaces;
-    using Labyrinth.Models.Interfaces;
-    using Labirynth.Logic.Interfaces;
     using Labyrinth.Console;
+    using Labyrinth.Console.Interfaces;
     using Labyrinth.Logic;
+    using Labyrinth.Logic.Interfaces;
     using Labyrinth.Models;
-    
+    using Labyrinth.Models.Interfaces;
+    using Ninject.Modules;
+
     public class NinjectConfig : NinjectModule
     {
         public override void Load()
@@ -18,7 +17,7 @@
             Bind<IRenderer>().To<ConsoleRenderer>();
             Bind<IGrid>().To<Grid>();
             Bind<IPlayer>().To<Player>();
-            Bind<IEngine>().To<LabyrinthEngine>();            
+            Bind<IEngine>().To<LabyrinthEngine>();
         }
     }
 }
