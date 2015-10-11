@@ -10,12 +10,12 @@
 
     public class LabyrinthEngine : Engine, IEngine
     {
-        private IRenderer renderer;
-        private IUserInterface userInterface;
+        private readonly IRenderer renderer;
+        private readonly IUserInterface userInterface;
         private IPlayer player;
         private IGrid grid;
-        private GridMemory gridMemory;
-        private Scoreboard scoreBoard;
+        private readonly GridMemory gridMemory;
+        private readonly Scoreboard scoreBoard;
         private bool isGameOver;
 
         public LabyrinthEngine(IRenderer renderer, IUserInterface userInterface, IInitializer initializer, IPlayer player, IGrid grid)
