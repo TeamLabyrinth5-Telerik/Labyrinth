@@ -205,7 +205,9 @@
         private void ProcessPrintScoreCommand()
         {
             this.renderer.PrintScore(this.scoreBoard);
+            
             this.GoBackToInitialMenu();
+           
         }
 
 
@@ -214,8 +216,11 @@
         /// </summary>
         private void ProcessInvalidCommand()
         {
-            this.renderer.ClearConsole();
             this.renderer.PrintMessage(GameMassages.WrongInputMessage);
+            this.userInterface.GetButtonInput();
+            this.renderer.ClearConsole();
+           
+            
         }
 
         /// <summary>
@@ -234,8 +239,10 @@
 
             if (this.grid.GetCell(this.player.Position.X + dirX, this.player.Position.Y + dirY) == GlobalConstants.BlockedCellSymbol)
             {
-                this.renderer.PrintMessage(GameMassages.WrongInputAndContinueMessage);
-                this.userInterface.GetUserInput();
+                // this.renderer.PrintMessage(GameMassages.WrongInputAndContinueMessage);
+                // this.renderer.ClearConsole();
+                //  this.userInterface.GetButtonInput();
+                this.player.MoveCount--;
                 return;
             }
             else
@@ -289,11 +296,13 @@
                     }
                     else if (answer == "YES")
                     {
+                        this.player.MoveCount = 0;
                         this.renderer.ClearConsole();
                         this.isGameOver = false;
                         this.ProcessStartCommand();
                         var command = this.userInterface.GetCommandFromInput();
                         this.renderer.ClearConsole();
+
                         this.ExecuteCommand(command);
                     }
                 }

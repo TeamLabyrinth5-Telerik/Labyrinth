@@ -23,8 +23,7 @@
         public string GetButtonInput()
         {
             var input = Console.ReadKey();
-            Console.WriteLine(input);
-            return input.Key.ToString();
+            return input.Key.ToString().ToUpper();
         }
 
         /// <summary>
@@ -33,7 +32,7 @@
         /// <returns>A <see cref="GameFifteen.Common.Enums.Command"/> to process.</returns>
         public Commands GetCommandFromInput()
         {
-              string input = this.GetButtonInput().ToUpper();
+              string input = this.GetButtonInput();
 
             switch (input)
             {
