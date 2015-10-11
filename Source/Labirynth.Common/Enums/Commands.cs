@@ -1,5 +1,8 @@
 ﻿namespace Labyrinth.Common.Enums
 {
+    /// <summary>
+    /// Game commands enumeration
+    /// </summary>
     public enum Commands
     {
         Restart,

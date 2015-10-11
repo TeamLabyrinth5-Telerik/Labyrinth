@@ -36,16 +36,14 @@
             return instance;
         }
 
-        public int Next()
-        {
-            return this.random.Next();
-        }
-
-        public int Next(int maxValue)
-        {
-            return this.random.Next(maxValue);
-        }
-
+        /// <summary>
+        /// Gets the next random integer
+        /// </summary>
+        /// <param name="minValue">The minumum value</param>
+        /// <param name="maxValue">The maximum value</param>
+        /// <returns>
+        /// Random integer number
+        /// </returns>
         public int Next(int minValue, int maxValue)
         {
             return this.random.Next(minValue, maxValue);

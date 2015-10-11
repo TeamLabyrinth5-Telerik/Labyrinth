@@ -64,6 +64,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Console\HelperReader.cs" />
+    <Compile Include="Console\HelperWriter.cs" />
+    <Compile Include="Console\TestConsoleRenderer.cs" />
     <Compile Include="Console\TestLabyrinthStarter.cs" />
     <Compile Include="Logic\TestInitializer.cs" />
     <Compile Include="Models\TestGrid.cs" />

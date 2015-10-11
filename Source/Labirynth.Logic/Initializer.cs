@@ -8,11 +8,22 @@
 
     public class Initializer : IInitializer
     {
+        /// <summary>
+        /// Initialize game
+        /// </summary>
+        /// <param name="grid">Field member</param>
+        /// <param name="player"Player member></param>
         public void InitializeGame(IGrid grid, IPlayer player)
         {
             this.GenerateGrid(player, grid);
         }
 
+        /// <summary>
+        /// Generete game field
+        /// </summary>
+        /// <param name="grid">Field member</param>
+        /// <param name="player"Player member></param>
+        /// <returns>Genereted game filed</returns>
         public IGrid GenerateGrid(IPlayer player, IGrid grid)
         {
             DefaultRandomGenerator random = DefaultRandomGenerator.Instance();
@@ -40,6 +51,11 @@
             return grid;
         }
 
+        /// <summary>
+        /// Маке аt least one possible way out of the maze
+        /// </summary>
+        /// <param name="generatedGrid">Genereted game field</param>
+        /// <param name="player">Player member</param>
         public void MakeAtLeastOneExitReachable(IGrid generatedGrid, IPlayer player)
         {
             DefaultRandomGenerator random = DefaultRandomGenerator.Instance();
@@ -64,6 +80,13 @@
             generatedGrid.SetCell(generatedGrid.TotalRows / 2, generatedGrid.TotalCols / 2, GlobalConstants.PlayerSignSymbol);
         }
 
+
+        /// <summary>
+        /// Checks if the player is in game field
+        /// </summary>
+        /// <param name="position">Player position</param>
+        /// <param name="grid">Game field</param>
+        /// <returns></returns>
         private bool IsInsideGrid(Position position, IGrid grid)
         {
             if (position.X >= 0 && position.X < grid.TotalRows &&
@@ -75,6 +98,12 @@
             return false;
         }
 
+        /// <summary>
+        /// Verify that the game is over
+        /// </summary>
+        /// <param name="player">The player</param>
+        /// <param name="grid">The game field</param>
+        /// <returns></returns>
         private bool IsGameOver(IPlayer player, IGrid grid)
         {
             if ((player.Position.X > 0 && player.Position.X < grid.TotalRows - 1) &&

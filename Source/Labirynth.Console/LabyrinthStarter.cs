@@ -4,6 +4,9 @@
     using Labyrinth.Logic.Interfaces;
     using Ninject;
 
+    /// <summary>
+    /// A normal game starter object implementing Facade design pattern.
+    /// </summary>
     public class LabyrinthStarter
     {
         private static volatile LabyrinthStarter instance;
@@ -13,6 +16,11 @@
         {
         }
 
+      
+        /// <summary>
+        /// Gets a instance of the game <see cref="LabyrinthStarter"/> class.
+        /// </summary>
+        /// <value>Instance of a game starter.</value>
         public static LabyrinthStarter Instance
         {
             get
@@ -33,7 +41,7 @@
         }
 
         /// <summary>
-        /// Start the game
+        /// Start a new game
         /// </summary>
         public void StartGame()
         {

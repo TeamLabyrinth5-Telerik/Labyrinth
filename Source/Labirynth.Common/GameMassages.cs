@@ -1,5 +1,8 @@
 ﻿namespace Labyrinth.Common
 {
+    /// <summary>
+    /// Contains public constants (as strings) as sentences to the Player.
+    /// </summary>
     public class GameMassages
     {
         public const string WelcomeMessage = "Welcome to “Labirinth” game. Please try to escape.";

@@ -1,5 +1,8 @@
 ﻿namespace Labyrinth.Common
 {
+    /// <summary>
+    /// Common constants used throughout the project.
+    /// </summary>
     public class GlobalConstants
     {
         public const int DefaultGridColsCount = 7;
