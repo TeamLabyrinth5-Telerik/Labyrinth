@@ -324,6 +324,8 @@
         private void ProcessStartCommand()
         {
             this.renderer.PrintLevels();
+            this.player = new Player();
+            this.grid = new Grid();
             var command = this.userInterface.GetCommandFromInput();
             this.renderer.ClearConsole();
             this.ExecuteCommand(command);
