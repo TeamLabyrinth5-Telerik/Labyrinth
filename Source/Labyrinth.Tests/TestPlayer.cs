@@ -52,5 +52,24 @@
             var expected = GlobalConstants.StartPlayerPositionY;
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void TestSecondConstruncturIfReturnValidNameAndPositionValue()
+        {
+            var position = new Position(3, 4);
+            var player = new Player("Gosho", position);
+
+            var actualName = player.Name;
+            var actualPositionX = player.Position.X;
+            var actualPositionY = player.Position.Y;
+
+            var expectedName = "Gosho";
+            var expectedPositionX = 3;
+            var expectedPositionY = 4;
+
+            Assert.AreEqual(expectedName, actualName);
+            Assert.AreEqual(expectedPositionX, actualPositionX);
+            Assert.AreEqual(expectedPositionY, expectedPositionY);
+        }
     }
 }

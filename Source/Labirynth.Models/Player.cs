@@ -61,6 +61,9 @@
             }
         }
 
+        /// <summary>
+        /// Propery for store count of player move
+        /// </summary>
         public int MoveCount
         {
             get

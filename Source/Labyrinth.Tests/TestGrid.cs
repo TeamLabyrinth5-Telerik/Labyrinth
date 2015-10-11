@@ -74,7 +74,7 @@
         }
 
         [TestMethod]
-        public void TestGetCellMethodIfGetCurrectlyValueWithIntPositionValue()
+        public void TestGetCellMethodIfGetCurrectlyValueWithPositionValue()
         {
             var position = new Position(3, 3);
             var grid = new Grid();
