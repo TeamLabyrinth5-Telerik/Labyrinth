@@ -46,13 +46,13 @@
                 case GlobalConstants.RestartCommand:
                     return Commands.Restart;
                 case GlobalConstants.UpKeyCommand:
-                    return Commands.U;
+                    return Commands.MoveUp;
                 case GlobalConstants.DownKeyCommand:
-                    return Commands.D;
+                    return Commands.MoveDown;
                 case GlobalConstants.LeftKeyCommand:
-                    return Commands.L;
+                    return Commands.MoveLeft;
                 case GlobalConstants.RigthKeyCommand:
-                    return Commands.R;
+                    return Commands.MoveRight;
                 case GlobalConstants.LevelA:
                     return Commands.LevelA;
                 case GlobalConstants.LevelB:

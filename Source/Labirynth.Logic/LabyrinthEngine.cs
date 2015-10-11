@@ -8,16 +8,54 @@
     using Labyrinth.Models;
     using Labyrinth.Models.Interfaces;
 
+    /// <summary>
+    /// The game engine - the entire game logic.
+    /// </summary>
     public class LabyrinthEngine : Engine, IEngine
-    {
+    {   
+        /// <summary>
+        /// The field that holds the IRenderer instance which draws the game.
+        /// </summary>
         private readonly IRenderer renderer;
+
+        /// <summary>
+        /// The field that holds the IUserInterface instance which reads user input.
+        /// </summary>
         private readonly IUserInterface userInterface;
+
+        /// <summary>
+        /// The field that holds the IPlayer instance.
+        /// </summary>
         private IPlayer player;
+
+        /// <summary>
+        /// The field that holds the IGrid instance.
+        /// </summary>
         private IGrid grid;
+
+        /// <summary>
+        /// The field that holds the GridMemory instance, represent CareTaker for Memento design pattern
+        /// </summary>
         private readonly GridMemory gridMemory;
+
+        /// <summary>
+        /// The field that holds the Scoreboard instance, store player top scores
+        /// </summary>
         private readonly Scoreboard scoreBoard;
+
+        /// <summary>
+        /// Flag for game state
+        /// </summary>
         private bool isGameOver;
 
+       /// <summary>
+        /// Initializes a new instance of the <see cref="LabyrinthEngine" /> class.
+       /// </summary>
+        /// <param name="renderer">>Object to print.</param>
+        /// <param name="userInterface">Interacting with user.</param>
+        /// <param name="initializer">Initializing the game.</param>
+       /// <param name="player">The player</param>
+       /// <param name="grid">The play field</param>
         public LabyrinthEngine(IRenderer renderer, IUserInterface userInterface, IInitializer initializer, IPlayer player, IGrid grid)
             : base(initializer)
         {
@@ -44,6 +82,10 @@
             }
         }
 
+        // <summary>
+        /// Execute commands.
+        /// </summary>
+        /// <param name="command">Command to execute.</param>
         private void ExecuteCommand(Commands command)
         {
             switch (command)
@@ -60,19 +102,19 @@
                     this.renderer.ClearConsole();
                     this.ProcessStartGameCommand(15);
                     break;
-                case Commands.L:
+                case Commands.MoveLeft:
                     this.renderer.ClearConsole();
                     this.ProcessMoveCommand(0, -1);
                     break;
-                case Commands.R:
+                case Commands.MoveRight:
                     this.renderer.ClearConsole();
                     this.ProcessMoveCommand(0, 1);
                     break;
-                case Commands.U:
+                case Commands.MoveUp:
                     this.renderer.ClearConsole();
                     this.ProcessMoveCommand(-1, 0);
                     break;
-                case Commands.D:
+                case Commands.MoveDown:
                     this.renderer.ClearConsole();
                     this.ProcessMoveCommand(1, 0);
                     break;
@@ -109,18 +151,28 @@
             }
         }
 
+        /// <summary>
+        /// Implementation of "HowTo" command
+        /// </summary>
         private void ProcessHowToCommand()
         {
             this.renderer.PrintMessage(GameMassages.HowToPlayMessage);
             this.GoBackToInitialMenu();
         }
 
+        /// <summary>
+        /// Implementation of "Save" command
+        /// </summary>
         private void ProcessSaveCommand()
         {
             this.gridMemory.Memento = this.SaveMemento();
             this.renderer.PrintMessage(GameMassages.GameSaved);
         }
 
+
+        /// <summary>
+        /// Implementation of "Load" command
+        /// </summary>
         private void ProcessLoadCommand()
         {
             try
@@ -134,6 +186,10 @@
             }
         }
 
+
+        /// <summary>
+        /// Implementation of "RestartGame" command
+        /// </summary>
         private void ProcessRestartGameCommand()
         {
             this.isGameOver = false;
@@ -142,18 +198,31 @@
             this.Initializer.InitializeGame(this.grid, this.player);
         }
 
+
+        /// <summary>
+        /// Implementation of "PrintScore" command
+        /// </summary>
         private void ProcessPrintScoreCommand()
         {
             this.renderer.PrintScore(this.scoreBoard);
             this.GoBackToInitialMenu();
         }
 
+
+        /// <summary>
+        /// Implementation of "Invalid" command
+        /// </summary>
         private void ProcessInvalidCommand()
         {
             this.renderer.ClearConsole();
             this.renderer.PrintMessage(GameMassages.WrongInputMessage);
         }
 
+        /// <summary>
+        /// Implementation of "Move" command
+        /// </summary>
+        /// <param name="dirX">Horizontal direction</param>
+        /// <param name="dirY">Vertical direction</param>
         private void ProcessMoveCommand(int dirX, int dirY)
         {
             this.player.MoveCount++;
@@ -178,11 +247,19 @@
             }
         }
 
+        /// <summary>
+        /// Implementation of "Exit" command
+        /// </summary>
         private void ProcessExitCommand()
         {
             this.userInterface.ExitGame();
         }
 
+
+        /// <summary>
+        /// Implementation of "StartGame" command
+        /// </summary>
+        /// <param name="size">Size of game field</param>
         private void ProcessStartGameCommand(int size)
         {
             this.grid.TotalRows = size;
@@ -231,6 +308,10 @@
             }
         }
 
+
+        /// <summary>
+        /// Implementation of "Start" command
+        /// </summary>
         private void ProcessStartCommand()
         {
             this.renderer.PrintLevels();
@@ -239,6 +320,9 @@
             this.ExecuteCommand(command);
         }
 
+        /// <summary>
+        /// Method that returs to main menu
+        /// </summary>
         private void GoBackToInitialMenu()
         {
             Console.ForegroundColor = ConsoleColor.White;
@@ -261,6 +345,9 @@
             this.renderer.PrintMenu();
         }
 
+        /// <summary>
+        /// Save player score after game ended
+        /// </summary>
         private void SaveScore()
         {
             this.renderer.PrintMessage(GameMassages.EnterNameMessage);
@@ -268,6 +355,12 @@
             this.scoreBoard.AddPlayer(this.player);
         }
 
+        /// <summary>
+        /// Test the player movement is valid
+        /// </summary>
+        /// <param name="position">Player position</param>
+        /// <param name="grid">Game field</param>
+        /// <returns></returns>
         private bool IsMoveValid(Position position, IGrid grid)
         {
             if (position.X < 0 || position.X > grid.TotalRows - 1 ||
@@ -279,6 +372,13 @@
             return true;
         }
 
+        /// <summary>
+        /// Verify that the game is over
+        /// </summary>
+        /// <param name="playerPositionX">Player position X</param>
+        /// <param name="playerPositionY">Player position Y</param>
+        /// <param name="grid">Game field</param>
+        /// <returns></returns>
         private bool IsGameOver(int playerPositionX, int playerPositionY, IGrid grid)
         {
             if ((playerPositionX > 0 && playerPositionX < grid.TotalRows - 1) &&
@@ -290,6 +390,10 @@
             return true;
         }
 
+        /// <summary>
+        /// Аuxiliary method for save game
+        /// </summary>
+        /// <returns></returns>
         private Memento SaveMemento()
         {
             char[,] currentField = (char[,])this.grid.Field.Clone();
@@ -297,6 +401,10 @@
             return new Memento(currentField, currentPlayerPosition);
         }
 
+        /// <summary>
+        /// Аuxiliary method for load game
+        /// </summary>
+        /// <param name="memento">Memento object</param>
         private void RestoreMemento(Memento memento)
         {
             this.grid.Field = (char[,])memento.Field.Clone();
