@@ -6,6 +6,8 @@
     {
         string GetUserInput();
 
+        string GetButtonInput();
+
         void ExitGame();
 
         Commands GetCommandFromInput();
