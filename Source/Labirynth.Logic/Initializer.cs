@@ -1,7 +1,6 @@
 ﻿namespace Labyrinth.Logic
 {
     using Labyrinth.Common;
-    using Labyrinth.Console;
     using Labyrinth.Console.Interfaces;
     using Labyrinth.Logic.Interfaces;
     using Labyrinth.Models;
@@ -14,7 +13,7 @@
             this.GenerateGrid(player, grid);
         }
 
-        private IGrid GenerateGrid(IPlayer player, IGrid grid)
+        public IGrid GenerateGrid(IPlayer player, IGrid grid)
         {
             DefaultRandomGenerator random = DefaultRandomGenerator.Instance();
             int percentageOfBlockedCells = random.Next(GlobalConstants.MinimumPercentageOfBlockedCells, GlobalConstants.MaximumPercentageOfBlockedCells);
@@ -41,7 +40,7 @@
             return grid;
         }
 
-        private void MakeAtLeastOneExitReachable(IGrid generatedGrid, IPlayer player)
+        public void MakeAtLeastOneExitReachable(IGrid generatedGrid, IPlayer player)
         {
             DefaultRandomGenerator random = DefaultRandomGenerator.Instance();
             int[] dirX = { 0, 0, 1, -1 };

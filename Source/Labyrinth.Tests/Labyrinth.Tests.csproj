@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.2.1507.0118\lib\net40\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="Telerik.JustMock, Version=2015.3.929.5, Culture=neutral, PublicKeyToken=721b6c5bc0326b3a, processorArchitecture=MSIL">
       <HintPath>..\packages\JustMock.2015.3.929.5\lib\Net35\Telerik.JustMock.dll</HintPath>
@@ -56,11 +59,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="TestGrid.cs" />
-    <Compile Include="TestPlayer.cs" />
+    <Compile Include="Logic\TestInitializer.cs" />
+    <Compile Include="Models\TestGrid.cs" />
+    <Compile Include="Models\TestPlayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestPosition.cs" />
-    <Compile Include="TestScoreboard.cs" />
+    <Compile Include="Models\TestPosition.cs" />
+    <Compile Include="Models\TestScoreboard.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Labirynth.Common\Labyrinth.Common.csproj">
