@@ -20,7 +20,6 @@
             var fakePlayer = new Mock<IPlayer>();
             fakeInitializer.Object.InitializeGame(fakeGrid.Object, fakePlayer.Object);
             fakeInitializer.Verify(i => i.InitializeGame(fakeGrid.Object, fakePlayer.Object), Times.Exactly(1));
-            fakeInitializer.Verify(m => m.MakeAtLeastOneExitReachable(fakeGrid.Object, fakePlayer.Object), Times.Exactly(0));
         }
 
         [TestMethod]

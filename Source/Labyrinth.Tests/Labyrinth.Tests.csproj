@@ -63,10 +63,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Console\HelperReader.cs" />
+    <Compile Include="Console\TestLabyrinthStarter.cs" />
     <Compile Include="Logic\TestInitializer.cs" />
     <Compile Include="Models\TestGrid.cs" />
     <Compile Include="Models\TestPlayer.cs" />
-    <Compile Include="Models\TestConsole.cs" />
+    <Compile Include="Console\TestConsoleInterface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\TestPosition.cs" />
     <Compile Include="Models\TestScoreboard.cs" />
@@ -75,6 +77,10 @@
     <ProjectReference Include="..\Labirynth.Common\Labyrinth.Common.csproj">
       <Project>{b30df359-9672-458f-8ad5-6fe22ee5bf15}</Project>
       <Name>Labyrinth.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Labirynth.Console\Labyrinth.Console.csproj">
+      <Project>{620f6900-7070-4850-9831-9bc260bfcf12}</Project>
+      <Name>Labyrinth.Console</Name>
     </ProjectReference>
     <ProjectReference Include="..\Labirynth.Logic\Labyrinth.Logic.csproj">
       <Project>{e19b3cd3-2a84-43f3-b192-977a5ee86204}</Project>
