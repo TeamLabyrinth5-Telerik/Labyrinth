@@ -9,6 +9,11 @@
     /// </summary>
     public class Grid : IGrid
     {
+        /// <summary>
+        /// nitializes a new instance of the Grid
+        /// </summary>
+        /// <param name="rows"></param>
+        /// <param name="cols"></param>
         public Grid(int rows = GlobalConstants.MaximalGridRowsCount, int cols = GlobalConstants.MaximalGridColsCount)
         {
             this.TotalRows = rows;
@@ -16,10 +21,19 @@
             this.Field = new char[this.TotalRows, this.TotalCols];
         }
 
+        /// <summary>
+        /// Get or set field
+        /// </summary>
         public char[,] Field { get; set; }
 
+        /// <summary>
+        /// Get or set total rows of grid
+        /// </summary>
         public int TotalRows { get; set; }
 
+        /// <summary>
+        /// Get or set total cols of grid
+        /// </summary>
         public int TotalCols { get; set; }
 
         /// <summary>

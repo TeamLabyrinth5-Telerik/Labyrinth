@@ -10,6 +10,11 @@
         private int x;
         private int y;
 
+        /// <summary>
+        /// Initializes a new instance of the Position
+        /// </summary>
+        /// <param name="positionX">Coordinate X</param>
+        /// <param name="positionY">Coordinate Y</param>
         public Position(int positionX, int positionY)
             : this()
         {
@@ -17,6 +22,9 @@
             this.Y = positionY;
         }
 
+        /// <summary>
+        /// Get or set x coordinate
+        /// </summary>
         public int X
         {
             get
@@ -30,6 +38,9 @@
             }
         }
 
+        /// <summary>
+        /// Get or set y coordinate
+        /// </summary>
         public int Y
         {
             get

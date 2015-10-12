@@ -6,13 +6,16 @@
     using Labyrinth.Models;
     using Labyrinth.Models.Interfaces;
 
+    /// <summary>
+    /// Player field creator
+    /// </summary>
     public class Initializer : IInitializer
     {
         /// <summary>
         /// Initialize game
         /// </summary>
         /// <param name="grid">Field member</param>
-        /// <param name="player"Player member></param>
+        /// <param name="player">Player member></param>
         public void InitializeGame(IGrid grid, IPlayer player)
         {
             this.GenerateGrid(player, grid);
@@ -79,7 +82,6 @@
             player.Position = new Position(generatedGrid.TotalRows / 2, generatedGrid.TotalCols / 2);
             generatedGrid.SetCell(generatedGrid.TotalRows / 2, generatedGrid.TotalCols / 2, GlobalConstants.PlayerSignSymbol);
         }
-
 
         /// <summary>
         /// Checks if the player is in game field

@@ -1,6 +1,7 @@
 ﻿namespace Labyrinth.Models
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
     using Labyrinth.Models.Interfaces;
@@ -8,10 +9,16 @@
     /// <summary>
     /// Class for saving and listing top scorers.
     /// </summary>
-    public class Scoreboard
+    public class Scoreboard : IEnumerable
     {
+        /// <summary>
+        /// Instance of the player list
+        /// </summary>
         private IList<IPlayer> players = new List<IPlayer>();
 
+        /// <summary>
+        /// Get player in scoreboard
+        /// </summary>
         public IList<IPlayer> Players
         {
             get
@@ -29,6 +36,18 @@
             this.players.Add(player);
             this.players = this.players.OrderBy(x => x.MoveCount).ToList();
             this.DeleteAllExceptTopPlayers();
+        }
+
+        /// <summary>
+        /// Foreach functionality of the scoreboard.
+        /// </summary>
+        /// <returns>IEnumerator object</returns>
+        public IEnumerator GetEnumerator()
+        {
+            foreach (Player player in this.players)
+            {
+                yield return player;
+            }
         }
 
         /// <summary>

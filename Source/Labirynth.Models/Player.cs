@@ -45,6 +45,9 @@
             this.Position = position;
         }
 
+        /// <summary>
+        /// Get or set player name
+        /// </summary>
         public string Name
         {
             get
@@ -82,6 +85,9 @@
             }
         }
 
+        /// <summary>
+        /// Get or set player position
+        /// </summary>
         public Position Position { get; set; }
     }
 }

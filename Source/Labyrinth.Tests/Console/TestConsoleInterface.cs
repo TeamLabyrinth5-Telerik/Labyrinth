@@ -7,7 +7,6 @@
     using Labyrinth.Logic.Interfaces;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Moq;
-    using Labyrinth.Common.Enums;
 
     [TestClass]
     public class TestConsoleInterface

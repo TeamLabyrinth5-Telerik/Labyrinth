@@ -8,8 +8,15 @@
     using Labyrinth.Models.Interfaces;
     using Ninject.Modules;
 
+    /// <summary>
+    /// Dependency injection
+    /// Binds interfaces to concrete implementations.
+    /// </summary>
     public class NinjectConfig : NinjectModule
     {
+        /// <summary>
+        /// Binds interfaces to concrete implementations.
+        /// </summary>
         public override void Load()
         {
             Bind<IUserInterface>().To<ConsoleInterface>();

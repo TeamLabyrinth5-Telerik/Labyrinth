@@ -9,13 +9,12 @@
     /// </summary>
     public class LabyrinthStarter
     {
+        private static readonly object SyncRoot = new object();
         private static volatile LabyrinthStarter instance;
-        private static object syncRoot = new object();
 
         private LabyrinthStarter()
         {
         }
-
       
         /// <summary>
         /// Gets a instance of the game <see cref="LabyrinthStarter"/> class.
@@ -27,7 +26,7 @@
             {
                 if (instance == null)
                 {
-                    lock (syncRoot)
+                    lock (SyncRoot)
                     {
                         if (instance == null)
                         {

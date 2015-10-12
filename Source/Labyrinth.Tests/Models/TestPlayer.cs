@@ -69,7 +69,7 @@
 
             Assert.AreEqual(expectedName, actualName);
             Assert.AreEqual(expectedPositionX, actualPositionX);
-            Assert.AreEqual(expectedPositionY, expectedPositionY);
+            Assert.AreEqual(actualPositionY, expectedPositionY);
         }
     }
 }

@@ -6,6 +6,9 @@
     using Labyrinth.Logic.Interfaces;
     using Labyrinth.Models;
 
+    /// <summary>
+    /// Provides drawing functions on console.
+    /// </summary>
     public class ConsoleRenderer : IRenderer
     {
         /// <summary>
@@ -35,17 +38,17 @@
         /// <summary>
         /// Prints high score on the console
         /// </summary>
-        /// <param name="scoreBoard">IList where is saved scores</param>
-        public void PrintScore(Scoreboard scoreBoard)
+        /// <param name="scoreboard">IList where is saved scores</param>
+        public void PrintScore(Scoreboard scoreboard)
         {
             int counter = 1;
 
-            if (scoreBoard.Players.Count <= 0)
+            if (scoreboard.Players.Count <= 0)
             {
                 Console.WriteLine(GameMassages.EmptyScoreBoardMessage);
             }
 
-            foreach (var player in scoreBoard.Players)
+            foreach (Player player in scoreboard)
             {
                 Console.WriteLine("{0}| {1} --> {2}", counter, player.Name, player.MoveCount);
                 counter++;

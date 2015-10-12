@@ -1,7 +1,8 @@
 ﻿namespace Labyrinth.Console
 {
-    using Labyrinth.Console;
-
+    /// <summary>
+    /// The main object where game starts.
+    /// </summary>
     public class LabyrinthMain
     {
         /// <summary>

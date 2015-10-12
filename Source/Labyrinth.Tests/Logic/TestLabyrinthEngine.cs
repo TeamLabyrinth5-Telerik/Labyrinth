@@ -22,11 +22,11 @@
         [TestMethod]
         public void EngineShouldBeInstanceOfTypeIEngine()
         {
-            var fakeInitializer = new Mock<IInitializer>().Object as IInitializer;
-            var fakeUserInterface = new Mock<IUserInterface>().Object as IUserInterface;
-            var fakeRenderer = new Mock<IRenderer>().Object as IRenderer;
-            var fakePlayer = new Mock<IPlayer>().Object as IPlayer;
-            var fakeGrid = new Mock<IGrid>().Object as IGrid;
+            var fakeInitializer = new Mock<IInitializer>().Object;
+            var fakeUserInterface = new Mock<IUserInterface>().Object;
+            var fakeRenderer = new Mock<IRenderer>().Object;
+            var fakePlayer = new Mock<IPlayer>().Object;
+            var fakeGrid = new Mock<IGrid>().Object;
 
             var engine = new LabyrinthEngine(fakeRenderer, fakeUserInterface, fakeInitializer, fakePlayer, fakeGrid);
 

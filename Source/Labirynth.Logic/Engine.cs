@@ -15,7 +15,7 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="Engine" /> class.
         /// </summary>
-        /// <param name="gameInitializer">Game initializer.</param>
+        /// <param name="initializer">Game initializer</param>
         protected Engine(IInitializer initializer)
         {
             this.Initializer = initializer;

@@ -5,6 +5,9 @@
     using Labyrinth.Common.Enums;
     using Labyrinth.Logic.Interfaces;
 
+    /// <summary>
+    /// Interacts with console user, process commands.
+    /// </summary>
     public class ConsoleInterface : IUserInterface
     {
         /// <summary>
@@ -27,9 +30,9 @@
         }
 
         /// <summary>
-        /// Process input from the user.
+        ///  Process input from the user.
         /// </summary>
-        /// <returns>A <see cref="GameFifteen.Common.Enums.Command"/> to process.</returns>
+        /// <returns>Command for execute</returns>
         public Commands GetCommandFromInput()
         {
               string input = this.GetButtonInput();

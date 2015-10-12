@@ -24,16 +24,6 @@
         private readonly IUserInterface userInterface;
 
         /// <summary>
-        /// The field that holds the IPlayer instance.
-        /// </summary>
-        private IPlayer player;
-
-        /// <summary>
-        /// The field that holds the IGrid instance.
-        /// </summary>
-        private IGrid grid;
-
-        /// <summary>
         /// The field that holds the GridMemory instance, represent CareTaker for Memento design pattern
         /// </summary>
         private readonly GridMemory gridMemory;
@@ -42,6 +32,16 @@
         /// The field that holds the Scoreboard instance, store player top scores
         /// </summary>
         private readonly Scoreboard scoreBoard;
+
+        /// <summary>
+        /// The field that holds the IPlayer instance.
+        /// </summary>
+        private IPlayer player;
+
+        /// <summary>
+        /// The field that holds the IGrid instance.
+        /// </summary>
+        private IGrid grid;
 
         /// <summary>
         /// Flag for game state
@@ -82,7 +82,7 @@
             }
         }
 
-        // <summary>
+        /// <summary>
         /// Execute commands.
         /// </summary>
         /// <param name="command">Command to execute.</param>
@@ -168,8 +168,7 @@
             this.gridMemory.Memento = this.SaveMemento();
             this.renderer.PrintMessage(GameMassages.GameSaved);
         }
-
-
+        
         /// <summary>
         /// Implementation of "Load" command
         /// </summary>
@@ -186,7 +185,6 @@
             }
         }
 
-
         /// <summary>
         /// Implementation of "RestartGame" command
         /// </summary>
@@ -198,18 +196,14 @@
             this.Initializer.InitializeGame(this.grid, this.player);
         }
 
-
         /// <summary>
         /// Implementation of "PrintScore" command
         /// </summary>
         private void ProcessPrintScoreCommand()
         {
             this.renderer.PrintScore(this.scoreBoard);
-            
             this.GoBackToInitialMenu();
-           
         }
-
 
         /// <summary>
         /// Implementation of "Invalid" command
@@ -219,8 +213,6 @@
             this.renderer.PrintMessage(GameMassages.WrongInputMessage);
             this.userInterface.GetButtonInput();
             this.renderer.ClearConsole();
-           
-            
         }
 
         /// <summary>
@@ -261,7 +253,6 @@
         {
             this.userInterface.ExitGame();
         }
-
 
         /// <summary>
         /// Implementation of "StartGame" command
@@ -316,7 +307,6 @@
                 this.isGameOver = this.IsGameOver(this.player.Position.X, this.player.Position.Y, this.grid);
             }
         }
-
 
         /// <summary>
         /// Implementation of "Start" command
