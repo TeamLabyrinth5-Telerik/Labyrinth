@@ -12,7 +12,7 @@
     /// The game engine - the entire game logic.
     /// </summary>
     public class LabyrinthEngine : Engine, IEngine
-    {   
+    {
         /// <summary>
         /// The field that holds the IRenderer instance which draws the game.
         /// </summary>
@@ -48,14 +48,14 @@
         /// </summary>
         private bool isGameOver;
 
-       /// <summary>
+        /// <summary>
         /// Initializes a new instance of the <see cref="LabyrinthEngine" /> class.
-       /// </summary>
+        /// </summary>
         /// <param name="renderer">>Object to print.</param>
         /// <param name="userInterface">Interacting with user.</param>
         /// <param name="initializer">Initializing the game.</param>
-       /// <param name="player">The player</param>
-       /// <param name="grid">The play field</param>
+        /// <param name="player">The player</param>
+        /// <param name="grid">The play field</param>
         public LabyrinthEngine(IRenderer renderer, IUserInterface userInterface, IInitializer initializer, IPlayer player, IGrid grid)
             : base(initializer)
         {
@@ -165,7 +165,7 @@
             this.gridMemory.Memento = this.SaveMemento();
             this.renderer.PrintMessage(GameMassages.GameSaved);
         }
-        
+
         /// <summary>
         /// Implementation of "Load" command
         /// </summary>
@@ -275,8 +275,8 @@
                     this.renderer.ClearConsole();
 
                     this.renderer.PrintMessage(GameMassages.PlayAgainMessage);
-
                     var answer = this.userInterface.GetUserInput().ToUpper();
+
                     if (answer == "NO")
                     {
                         this.renderer.ClearConsole();
@@ -291,6 +291,15 @@
                         this.renderer.ClearConsole();
                         this.isGameOver = false;
                         this.ProcessRestartGameCommand(size);
+                    }
+                    else
+                    {
+                        this.renderer.ClearConsole();
+                        this.ProcessInvalidCommand();
+                        this.GoBackToInitialMenu();
+                        this.ProcessRestartGameCommand(size);
+                        this.renderer.ClearConsole();
+                        break;
                     }
                 }
 
