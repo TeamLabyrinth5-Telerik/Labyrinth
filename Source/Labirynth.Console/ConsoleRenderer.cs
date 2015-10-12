@@ -17,7 +17,7 @@
         /// <param name="grid">the playfield</param>
         public void PrintLabirynth(IGrid grid)
         {
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine(" " + new string('\u2593', (grid.TotalRows * 2) + 3));
 
             for (int row = 0; row < grid.TotalRows; row++)
@@ -25,13 +25,22 @@
                 Console.Write("{0,2}", "\u2593");
                 for (int col = 0; col < grid.TotalCols; col++)
                 {
-                    Console.Write("{0,2}", grid.GetCell(row, col));
+                    var currentCell = grid.GetCell(row, col);
+                    if (currentCell == GlobalConstants.PlayerSignSymbol)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkCyan;
+                    }
+
+                    Console.Write("{0,2}", currentCell);
                 }
 
                 Console.Write("{0,2}", "\u2593");
                 Console.WriteLine();
             }
-
             Console.WriteLine(" " + new string('\u2593', (grid.TotalCols * 2) + 3));
         }
 

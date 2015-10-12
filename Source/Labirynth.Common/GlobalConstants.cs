@@ -22,7 +22,7 @@
 
         public const char BlockedCellSymbol = '\u2592';
         public const char FreeCellSymbol = '-';
-        public const char PlayerSignSymbol = '@';
+        public const char PlayerSignSymbol = '$';
 
         public const string ExitCommand = "EXIT";
         public const string RestartCommand = "RESTART";

@@ -48,9 +48,7 @@
                 }
             }
 
-            Console.ForegroundColor = ConsoleColor.Red;
             grid.SetCell(grid.TotalRows / 2, grid.TotalCols / 2, GlobalConstants.PlayerSignSymbol);
-            Console.ResetColor();
 
             this.MakeAtLeastOneExitReachable(grid, player);
             return grid;
