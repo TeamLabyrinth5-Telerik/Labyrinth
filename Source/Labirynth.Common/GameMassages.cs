@@ -7,7 +7,7 @@
     {
         public const string WelcomeMessage = "Welcome to “Labirinth” game. Please try to escape.";
 
-        public const string HowToPlayMessage = " Press '1' to start a new game \n Press '3' to view the top scoreboard \n Press '4' to quit the game. \n Use UpArrow, DownArrow, LeftArrow and RigthArrow to navigate. \n Use S and L to Save and Load game state.";
+        public const string HowToPlayMessage = " Press '1' to start a new game \n Press '3' to view the top scoreboard \n Press '4' to quit the game. \n Press A for grid with size 7 x 7. \n Press B for grid with size 10 x 10. \n Press C for grid with size 15 x 15. \n Use UpArrow, DownArrow, LeftArrow and RigthArrow to navigate. \n Use S and L to Save and Load game state.";
 
         public const string InviteUserInputMessage = "Enter your move (L=left, R=right, U=up, D=down): ";
 

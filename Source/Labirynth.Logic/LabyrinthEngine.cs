@@ -92,15 +92,15 @@
             {
                 case Commands.LevelA:
                     this.renderer.ClearConsole();
-                    this.ProcessStartGameCommand(7);
+                    this.ProcessStartGameCommand(GlobalConstants.LevelAGridSize);
                     break;
                 case Commands.LevelB:
                     this.renderer.ClearConsole();
-                    this.ProcessStartGameCommand(10);
+                    this.ProcessStartGameCommand(GlobalConstants.LevelBGridSize);
                     break;
                 case Commands.LevelC:
                     this.renderer.ClearConsole();
-                    this.ProcessStartGameCommand(15);
+                    this.ProcessStartGameCommand(GlobalConstants.LevelCGridSize);
                     break;
                 case Commands.MoveLeft:
                     this.renderer.ClearConsole();
@@ -125,9 +125,6 @@
                 case Commands.Load:
                     this.renderer.ClearConsole();
                     this.ProcessLoadCommand();
-                    break;
-                case Commands.Restart:
-                    this.ProcessRestartGameCommand();
                     break;
                 case Commands.HighScore:
                     this.ProcessPrintScoreCommand();
@@ -188,11 +185,13 @@
         /// <summary>
         /// Implementation of "RestartGame" command
         /// </summary>
-        private void ProcessRestartGameCommand()
+        private void ProcessRestartGameCommand(int size)
         {
             this.isGameOver = false;
             this.player = new Player();
-            this.grid = new Grid();
+            this.grid = new Grid(size);
+            this.grid.TotalRows = size;
+            this.grid.TotalCols = size;
             this.Initializer.InitializeGame(this.grid, this.player);
         }
 
@@ -260,6 +259,8 @@
         /// <param name="size">Size of game field</param>
         private void ProcessStartGameCommand(int size)
         {
+            this.player = new Player();
+            this.grid = new Grid(size);
             this.grid.TotalRows = size;
             this.grid.TotalCols = size;
             this.Initializer.InitializeGame(this.grid, this.player);
@@ -287,14 +288,9 @@
                     }
                     else if (answer == "YES")
                     {
-                        this.player.MoveCount = 0;
                         this.renderer.ClearConsole();
                         this.isGameOver = false;
-                        this.ProcessStartCommand();
-                        var command = this.userInterface.GetCommandFromInput();
-                        this.renderer.ClearConsole();
-
-                        this.ExecuteCommand(command);
+                        this.ProcessRestartGameCommand(size);
                     }
                 }
 

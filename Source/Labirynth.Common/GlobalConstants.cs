@@ -9,6 +9,9 @@
         public const int DefaultGridRowsCount = 7;
         public const int MaximalGridColsCount = 15;
         public const int MaximalGridRowsCount = 15;
+        public const int LevelAGridSize = 7;
+        public const int LevelBGridSize = 10;
+        public const int LevelCGridSize = 15;
 
         public const int StartPlayerPositionX = 3;
         public const int StartPlayerPositionY = 3;
