@@ -1,13 +1,12 @@
 ﻿namespace Labyrinth.Tests.Logic
 {
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
     using Labyrinth.Console.Interfaces;
+    using Labyrinth.Logic;
     using Labyrinth.Logic.Interfaces;
     using Labyrinth.Models;
     using Labyrinth.Models.Interfaces;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Moq;
-    using Labyrinth.Logic;
 
     [TestClass]
     public class TestInitializer

@@ -2,15 +2,13 @@
 {
     using System;
     using System.Collections.Generic;
-
+    using GameFifteen.ConsoleTests;
+    using Labyrinth.Common;
     using Labyrinth.Console;
     using Labyrinth.Models;
-    using Labyrinth.Common;
-    using GameFifteen.ConsoleTests;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Moq;
-    
-
+   
     [TestClass]
     public class TestConsoleRenderer
     {
@@ -73,7 +71,5 @@
 
             mockedWriter.Verify(w => w.WriteLine(It.Is<string>(str => messageToProcess.Contains(str))), Times.Exactly(messageToProcess.Count));
         }
-
-
     }
 }

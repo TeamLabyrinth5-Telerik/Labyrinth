@@ -1,8 +1,8 @@
 ﻿namespace Labyrinth.Tests.Models
 {
     using System.Linq;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Labyrinth.Models;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class TestScoreboard
