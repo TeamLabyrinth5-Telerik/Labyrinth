@@ -68,6 +68,7 @@
     <Compile Include="Console\TestConsoleRenderer.cs" />
     <Compile Include="Console\TestLabyrinthStarter.cs" />
     <Compile Include="Logic\TestInitializer.cs" />
+    <Compile Include="Logic\TestLabyrinthEngine.cs" />
     <Compile Include="Models\TestGrid.cs" />
     <Compile Include="Models\TestPlayer.cs" />
     <Compile Include="Console\TestConsoleInterface.cs" />
